@@ -1,5 +1,5 @@
 **/*~
-**/*.rpyc
+
 **/*.rpymc
 game/cache
 game/saves
