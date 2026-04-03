@@ -6,7 +6,7 @@ define e = Character("Player")
 
 label splashscreen:
     scene black
-    play music "audio/1.mp3" 
+
     # 第一行
     show text "制作" as line1:
         xalign 0.2
@@ -19,7 +19,7 @@ label splashscreen:
 
     # 第二行
     show text "饼干车间" as line2:
-        xalign 0.4
+        xalign 0.2
         yalign 0.4
         alpha 0.0
         zoom 0.0
@@ -34,15 +34,16 @@ label splashscreen:
     #pause 10
     #stop movie
 
-    
+    pause 7
 
+    play music "audio/1.mp3" fadein 1.0 noloop
     #中文游戏标题
     show text "迷恋下一拍" as line3:
         xalign 0.5
         yalign 0.5
         alpha 0.0
         zoom 0.0
-        pause 7
+        
         linear 2.5 alpha 1.0 zoom 6
         pause 1.0
         linear 0.5 alpha 0.0
@@ -58,7 +59,7 @@ label splashscreen:
         #linear 0.5 alpha 0.0
 
     pause 11.5
-    stop music fadeout 1.0
+    
     return
 
 # 游戏在此开始。
