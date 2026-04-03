@@ -6,7 +6,7 @@ define e = Character("Player")
 
 label splashscreen:
     scene black
-
+    play music "audio/1.mp3" 
     # 第一行
     show text "制作" as line1:
         xalign 0.2
@@ -34,7 +34,7 @@ label splashscreen:
     #pause 10
     #stop movie
 
-
+    
 
     #中文游戏标题
     show text "迷恋下一拍" as line3:
@@ -58,28 +58,29 @@ label splashscreen:
         #linear 0.5 alpha 0.0
 
     pause 11.5
+    stop music fadeout 1.0
     return
 
 # 游戏在此开始。
 
-label start:
+#label start:
 
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件
     # （命名为 bg room.png 或 bg room.jpg）来显示。
 
-    scene bg room
+    #scene bg room
 
     # 显示角色立绘。此处使用了占位图，但您也可以在图片目录添加命名为
     # eileen happy.png 的文件来将其替换掉。
 
-    show eileen happy
+    #show eileen happy
 
     # 此处显示各行对话。
 
-    e "您已创建一个新的 Ren'Py 游戏。"
+    #e "您已创建一个新的 Ren'Py 游戏。"
 
-    e "当您完善了故事、图片和音乐之后，您就可以向全世界发布了！"
+    #e "当您完善了故事、图片和音乐之后，您就可以向全世界发布了！"
 
     # 此处为游戏结尾。
 
-    return
+    #return
