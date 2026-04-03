@@ -2,8 +2,63 @@
 
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
 
-define e = Character("艾琳")
+define e = Character("Player")
 
+label splashscreen:
+    scene black
+
+    # 第一行
+    show text "制作" as line1:
+        xalign 0.2
+        yalign 0.2
+        alpha 0.0
+        zoom 0.0
+        linear 2.0 alpha 1.0 zoom 3
+        pause 1.5
+        linear 0.5 alpha 0.0
+
+    # 第二行
+    show text "饼干车间" as line2:
+        xalign 0.4
+        yalign 0.4
+        alpha 0.0
+        zoom 0.0
+        pause 2.5
+        linear 2.5 alpha 1.0 zoom 4
+        pause 1.0
+        linear 0.5 alpha 0.0
+
+    # 播放视频（10秒）
+    #scene black  # 清屏
+    #play movie "video.mp4" loop False
+    #pause 10
+    #stop movie
+
+
+
+    #中文游戏标题
+    show text "迷恋下一拍" as line3:
+        xalign 0.5
+        yalign 0.5
+        alpha 0.0
+        zoom 0.0
+        pause 7
+        linear 2.5 alpha 1.0 zoom 6
+        pause 1.0
+        linear 0.5 alpha 0.0
+    # 英文游戏标题
+    #show text "love next note" as line3_en:
+        #xalign 0.5
+        #yalign 0.55   # 稍微偏下
+        #alpha 0.0
+        #zoom 0.0
+        #pause 7
+        #linear 2.5 alpha 1.0 zoom 4   # 可以略小于中文
+        #pause 1.0
+        #linear 0.5 alpha 0.0
+
+    pause 11.5
+    return
 
 # 游戏在此开始。
 
