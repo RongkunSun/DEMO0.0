@@ -24,7 +24,7 @@ label splashscreen:
         alpha 0.0
         zoom 0.0
         pause 2.5
-        linear 2.5 alpha 1.0 zoom 4
+        linear 2.5 alpha 1.0 zoom 3.5
         pause 1.0
         linear 0.5 alpha 0.0
 
@@ -36,17 +36,18 @@ label splashscreen:
 
     pause 7
 
-    play music "audio/1.mp3" fadein 1.0 noloop
+    play music "audio/main_menu1.mp3" fadein 1.0 noloop
     #中文游戏标题
     show text "迷恋下一拍" as line3:
         xalign 0.5
         yalign 0.5
         alpha 0.0
         zoom 0.0
-        
         linear 2.5 alpha 1.0 zoom 6
         pause 1.0
         linear 0.5 alpha 0.0
+    
+    
     # 英文游戏标题
     #show text "love next note" as line3_en:
         #xalign 0.5
@@ -57,8 +58,11 @@ label splashscreen:
         #linear 2.5 alpha 1.0 zoom 4   # 可以略小于中文
         #pause 1.0
         #linear 0.5 alpha 0.0
-
-    pause 11.5
+        
+    pause 2
+    stop music fadeout 2.0
+    pause 3
+    
     
     return
 
