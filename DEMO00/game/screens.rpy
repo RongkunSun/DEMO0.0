@@ -302,6 +302,8 @@ screen navigation():
 
         textbutton _("设置") action ShowMenu("preferences")
 
+        textbutton "Gallery" action ShowMenu("gallery") #added gallery system
+
         if _in_replay:
 
             textbutton _("结束回放") action EndReplay(confirm=True)

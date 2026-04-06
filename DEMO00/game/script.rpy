@@ -67,6 +67,10 @@ label splashscreen:
     return
 
 # 游戏在此开始。
+init python:
+
+    # Step 1. Create the gallery object.
+    g = Gallery( )
 
 #label start:
 
