@@ -76,7 +76,7 @@ init python:
     g.image("temp_bg_park1.png") 
     g.button("test2")
     g.image("temp_bg_park2.png") 
-    #g.image("temp_bg_park2.png") 
+   
 screen gallery:
 
     # Ensure this replaces the main menu.
@@ -94,6 +94,36 @@ screen gallery:
         add g.make_button("test2", "temp_bg_park02.png", xalign=0.5, yalign=0.5)
 
     textbutton "Return" action Return()
+
+# 全局台词属性溶解效果
+define config.say_attribute_transition = Dissolve(0.5)
+
+# 定义角色
+define e = Character("Eileen", color="#ffffff", what_size=30, name_color="#ffffff")
+
+label start:
+    scene bg "wip_bg.png"  # 背景图片
+    window show
+
+    # 普通台词
+    e "这是普通白色文字，默认大小，名字白色。"
+
+    # 文字颜色渐变
+    e "{color=#ff5555}文字渐变为红色！{/color}"
+
+    # 文字大小渐变
+    e "{size=50}文字慢慢变大！{/size}"
+
+    # 名字颜色渐变（用 style tag 改名字颜色）
+    e "{=name_color=#55ff55}名字颜色渐变为绿色！{/=}"
+
+    # 多属性同时变化
+    e "{color=#5555ff}{size=35}{=name_color=#ffff55}文字蓝色、变小，名字黄色！{/=}{/size}{/color}"
+
+    # 再来一行，演示全部组合同时溶解
+    e "{color=#ff00ff}{size=45}{=name_color=#00ffff}文字粉色+大，名字青色！{/=}{/size}{/color}"
+
+    return
 #label start:
 
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件
