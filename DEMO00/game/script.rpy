@@ -1,19 +1,20 @@
 ﻿# 游戏的脚本可置于此文件中。
 
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
-
 define p = Character("Player")
-define mq = Character("马奇", color="#c8ffc8")
-define yz = Character("盐之", color="#c8ffc8")
-define jc = Character("简诚", color="#c8ffc8")
-define ms = Character("毛莎", color="#c8ffc8")
-define msu = Character("毛笋", color="#c8ffc8")
-define qy = Character("千叶", color="#c8ffc8")
+define mq = Character("马奇", color="#fbd145")
+define yz = Character("盐之", color="#f42727")
+define jc = Character("简诚", color="#c9f0f7")
+define ms = Character("毛莎", color="#3354c1")
+define msu = Character("毛笋", color="#e82b73")
+define qy = Character("千叶", color="#0ecce1")
 
-image 
+
 
 image park = "images/park.jpg"
-
+image office ="images/office.png"
+image subway ="images/subway.png"
+image toilet ="images/toilet.png"
 label splashscreen:
     scene black
 
@@ -105,14 +106,31 @@ screen gallery:
     textbutton "Return" action Return()
 
 # 全局台词属性溶解效果
-define config.say_attribute_transition = Dissolve(0.5)
+#define config.say_attribute_transition = Dissolve(0.5)
 
-# 定义角色
-define e = Character("Eileen", color="#ffffff", what_size=30, name_color="#ffffff")
+# 开场ppt
 
 label start:
-    
+    call work
+    call layoff
     return
+
+label work:
+    scene office
+    pause 2.0
+    scene subway
+    pause 2.0
+    scene toilet
+    pause 2.0
+    return
+
+label layoff:
+    scene black
+    "明天不用来了！"
+    return
+
+label train:
+
 #label start:
 
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件
