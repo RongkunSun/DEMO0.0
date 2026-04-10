@@ -12,9 +12,18 @@ define qy = Character("千叶", color="#0ecce1")
 
 
 image park = "images/park.jpg"
-image office ="images/office.png"
-image subway ="images/subway.png"
-image toilet ="images/toilet.png"
+image office ="images/openning/temp_office.png"
+image subway ="images/openning/temp_subway.png"
+image toilet ="images/openning/temp_toilet.png"
+image layoff = "images/openning/temp_layoff.png"
+image map = "images/openning/temp_map.png"
+
+image qianye = "images/temp_qianye.png"
+
+image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 1080)
+
+
+
 label splashscreen:
     scene black
 
@@ -113,6 +122,9 @@ screen gallery:
 label start:
     call work
     call layoff
+    call train
+    call train_station
+
     return
 
 label work:
@@ -122,14 +134,89 @@ label work:
     pause 2.0
     scene toilet
     pause 2.0
+    scene office
+    pause 1.0
+    scene subway
+    pause 1.0
+    scene toilet
+    pause 1.0
+    scene office
+    pause 0.5
+    scene subway
+    pause 0.5
+    scene toilet
+    pause 0.5
     return
-
 label layoff:
     scene black
-    "明天不用来了！"
+    pause 0.5
+
+    show layoff:
+        alpha 0.0
+        pause 1.5
+        alpha 1.0
+
+    "“明天不用来了！”"
+
     return
 
 label train:
+    scene  map
+        #play sound "audio/train.ogg"
+    "之后就是连夜收拾行李，坐上了回老家的火车。"
+    "详细的经过来不及解释了，先下车吧。"
+    #stop sound fadeout 1.0
+
+    return
+label train_station:
+    scene trainstation
+
+    scene station
+
+    show qianye
+
+    "？？？" "上班生活过得怎么样啊？"
+    p "千叶！！！有你来接我真好！"
+
+
+    qy "那当然啦。正好今天餐厅没什么事，我也出来放松放松。"
+
+    p "上班的话……每天都像在过同一天。"
+
+    qy "听起来怎么有点惨。"
+    qy "不过，总该有点收获吧？"
+
+    p "……"
+    p "……钱倒是有攒下一些。"
+
+    qy "真是难得的闲暇啊！既然钱和时间都有了，接下来打算做点什么吗？"
+
+    menu:
+        "你打算做什么？"
+
+        "就加入你的餐厅事业吧":
+            qy "哈哈你想哪儿去了，我说的是今天的安排啦。"
+            jump after_choice
+
+        "有点饿了":
+            qy "看来即使今天休息，我有段餐厅也得在餐厅里度过啦。"
+            jump after_choice
+
+        "完全没想好":
+            qy "我知道我们今天可以去干什么啦。"
+            jump after_choice
+    return
+
+label after_choice:
+
+    # 后续剧情继续写这里
+
+
+    return
+
+
+
+  
 
 #label start:
 
