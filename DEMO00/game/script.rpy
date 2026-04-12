@@ -9,7 +9,137 @@ define ms = Character("毛莎", color="#3354c1")
 define msu = Character("毛笋", color="#e82b73")
 define qy = Character("千叶", color="#0ecce1")
 
+# ===== image定义 =====
+image qianye_body_koalcoat = "images/qianye/qianye_body_koalacoat.png"
+image qianye_body_koalcoatred = "images/qianye/qianye_body_koalacoatred.png"
 
+image qianye_face_normal = "images/qianye/qianye_face_default.png"
+image qianye_face_displeasure = "images/qianye/cat.png"
+image qianye_face_happy = "images/qianye/qianye_face_happy.png"
+image qianye_face_confident = "images/qianye/qianye_face_confident.png"
+image qianye_face_sad = "images/qianye/qianye_face_sad.png"
+image qianye_face_speaking = "images/qianye/qianye_face_speaking.png"
+image qianye_face_unhappy = "images/qianye/qianye_face_unhappy.png"
+image qianye_face_quitenice = "images/qianye/qianye_face_quitenice.png"
+
+# ❗你缺这个
+
+
+layeredimage qianye:
+    zoom 0.25
+
+    group body:
+        attribute koalcoat default
+        attribute koalcoatred
+     
+    group face:
+
+        attribute normal default:
+            "qianye_face_normal"
+
+        attribute displeasure:
+            "qianye_face_displeasure"
+
+        attribute happy:
+            "qianye_face_happy"
+
+        attribute confident:
+            "qianye_face_confident"
+        attribute sad:
+            "qianye_face_sad"   
+        attribute speaking:
+            "qianye_face_speaking"
+        attribute unhappy:
+            "qianye_face_unhappy"
+        attribute quitenice:
+            "qianye_face_quitenice"
+
+#blinking animation for qianye's neutral face
+image qianye_face_normal_anim:
+
+    "qianye_face_normal"
+    pause renpy.random.uniform(3.0, 6.0)  # 更自然一点
+
+    "qianye_face_closed"
+    pause 0.1
+
+    repeat
+
+label test_qianye_full:
+
+    scene black
+
+    # ===== 初始 =====
+    show qianye koalcoat
+    qy "默认状态9（koalcoat + normal + 眨眼）。"
+
+    # ===== 表情测试（默认衣服）=====
+    show qianye koalcoat normal
+    qy "normal。"
+
+    show qianye koalcoat happy
+    qy "happy。"
+
+    show qianye koalcoat sad
+    qy "sad。"
+
+    show qianye koalcoat confident
+    qy "confident。"
+
+    show qianye koalcoat displeasure
+    qy "displeasure。"
+
+    show qianye koalcoat unhappy
+    qy  "unhappy。"
+
+    show qianye koalcoat quitenice
+    qy "quitenice。"
+
+    show qianye koalcoat speaking
+    qy "speaking（测试嘴型）。"
+    qy "连续说几句看看自然不自然。"
+
+    # ===== 换衣服测试 =====
+    show qianye koalcoatred normal
+    qy "红外套 + normal。"
+
+    show qianye koalcoatred happy
+    qy "红外套 + happy。"
+
+    show qianye koalcoatred sad
+    qy "红外套 + sad。"
+
+    show qianye koalcoatred confident
+    qy "红外套 + confident。"
+
+    # ===== 快速切换测试（看有没有闪烁）=====
+    show qianye koalcoat normal
+    qy "切回默认衣服。"
+
+    show qianye happy
+    show qianye sad
+    show qianye displeasure
+    show qianye confident
+    show qianye unhappy
+    show qianye quitenice
+
+    qy "快速切换结束。"
+
+    # ===== 眨眼观察 =====
+    show qianye normal
+    qy "现在停一会，观察眨眼。"
+    pause 5.0
+
+    # ===== speaking连续测试 =====
+    show qianye speaking
+    qy "说话测试1。"
+    qy "说话测试2。"
+    qy "说话测试3。"
+
+    show qianye normal
+    qy "恢复 normal。"
+
+    return            
 
 image park = "images/park.jpg"
 image office ="images/openning/temp_office.png"
@@ -18,7 +148,9 @@ image toilet ="images/openning/temp_toilet.png"
 image layoff = "images/openning/temp_layoff.png"
 image map = "images/openning/temp_map.png"
 
-image qianye = "images/temp_qianye.png"
+
+
+#image qianye = "images/temp_qianye.png"
 
 image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 1080)
 
@@ -120,10 +252,11 @@ screen gallery:
 # 开场ppt
 
 label start:
-    call work
-    call layoff
-    call train
-    call train_station
+    #call work
+    #call layoff
+    #call train
+    call test_qianye_full
+    #call train_station
 
     return
 
