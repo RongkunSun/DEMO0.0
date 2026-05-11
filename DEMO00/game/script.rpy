@@ -2,14 +2,14 @@
 
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
 define p = Character("Player")
-define mq = Character("马奇", color="#fbd145")
+define mq = Character("马奇", color="#e3b008")
 define yz = Character("盐之", color="#f42727")
 define jc = Character("简诚", color="#c9f0f7")
 define ms = Character("毛莎", color="#3354c1")
 define msu = Character("毛笋", color="#e82b73")
-define qy = Character("千叶", color="#0ecce1")
+define qy = Character("千叶", color="#fd8426")
 
-# ===== image定义 =====
+# =====character image定义 =====
 image qianye_body_koalcoat = "images/qianye/qianye_body_koalacoat.png"
 image qianye_body_koalcoatred = "images/qianye/qianye_body_koalacoatred.png"
 
@@ -30,9 +30,7 @@ image yan_face_speak = "images/yanzhi/yan_face_speak.png"
 image yan_face_awkward = "images/yanzhi/yan_face_awkward.png"
 image yan_anime_blink = "images/yanzhi/yan_anime_blink.png"
 
-# ❗你缺这个
-
-
+# ===== layeredimage定义 =====
 layeredimage qianye:
     zoom 0.25
 
@@ -82,6 +80,15 @@ layeredimage yan:
         attribute speak:
             "yan_face_speak"
         
+#===== bgimage定义 =====
+image park = "images/park.jpg"
+image office ="images/openning/temp_office.png"
+image subway ="images/openning/temp_subway.png"
+image toilet ="images/openning/temp_toilet.png"
+image layoff = "images/openning/temp_layoff.png"
+image map = "images/openning/temp_map.png"
+image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 1080)
+
 
 #blinking animation for qianye's neutral face
 image qianye_face_normal_anim:
@@ -94,97 +101,8 @@ image qianye_face_normal_anim:
 
     repeat
 
-label test_qianye_full:
 
-    scene black
-
-    # ===== 初始 =====
-    show qianye koalcoat
-    qy "默认状态9（koalcoat + normal + 眨眼）。"
-
-    # ===== 表情测试（默认衣服）=====
-    show qianye koalcoat normal
-    qy "normal。"
-
-    show qianye koalcoat happy
-    qy "happy。"
-
-    show qianye koalcoat sad
-    qy "sad。"
-
-    show qianye koalcoat confident
-    qy "confident。"
-
-    show qianye koalcoat displeasure
-    qy "displeasure。"
-
-    show qianye koalcoat unhappy
-    qy  "unhappy。"
-
-    show qianye koalcoat quitenice
-    qy "quitenice。"
-
-    show qianye koalcoat speaking
-    qy "speaking（测试嘴型）。"
-    qy "连续说几句看看自然不自然。"
-
-    # ===== 换衣服测试 =====
-    show qianye koalcoatred normal
-    qy "红外套 + normal。"
-
-    show qianye koalcoatred happy
-    qy "红外套 + happy。"
-
-    show qianye koalcoatred sad
-    qy "红外套 + sad。"
-
-    show qianye koalcoatred confident
-    qy "红外套 + confident。"
-
-    # ===== 快速切换测试（看有没有闪烁）=====
-    show qianye koalcoat normal
-    qy "切回默认衣服。"
-
-    show qianye happy
-    show qianye sad
-    show qianye displeasure
-    show qianye confident
-    show qianye unhappy
-    show qianye quitenice
-
-    qy "快速切换结束。"
-
-    # ===== 眨眼观察 =====
-    show qianye normal
-    qy "现在停一会，观察眨眼。"
-    pause 5.0
-
-    # ===== speaking连续测试 =====
-    show qianye speaking
-    qy "说话测试1。"
-    qy "说话测试2。"
-    qy "说话测试3。"
-
-    show qianye normal
-    qy "恢复 normal。"
-
-    return            
-
-image park = "images/park.jpg"
-image office ="images/openning/temp_office.png"
-image subway ="images/openning/temp_subway.png"
-image toilet ="images/openning/temp_toilet.png"
-image layoff = "images/openning/temp_layoff.png"
-image map = "images/openning/temp_map.png"
-
-
-
-#image qianye = "images/temp_qianye.png"
-
-image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 1080)
-
-
-
+#开场演出
 label splashscreen:
     scene black
 
@@ -247,33 +165,6 @@ label splashscreen:
     
     return
 
-# 游戏在此开始。
-init python:
-
-    # Step 1. Create the gallery object.
-    g = Gallery( )
-    g.button("test1")
-    g.image("temp_bg_park1.png") 
-    g.button("test2")
-    g.image("temp_bg_park2.png") 
-   
-screen gallery:
-
-    # Ensure this replaces the main menu.
-    tag menu
-
-    # The background.
-    add "wip_bg.png"
-
-    # A grid of buttons.
-    grid 3 3:
-
-        xfill True
-        yfill True
-        add g.make_button("test1", "temp_bg_park01.png", xalign=0.5, yalign=0.5)
-        add g.make_button("test2", "temp_bg_park02.png", xalign=0.5, yalign=0.5)
-
-    textbutton "Return" action Return()
 
 # 全局台词属性溶解效果
 #define config.say_attribute_transition = Dissolve(0.5)
