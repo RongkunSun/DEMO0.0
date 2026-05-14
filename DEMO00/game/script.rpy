@@ -1,37 +1,40 @@
 ﻿# 游戏的脚本可置于此文件中。
 
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
-define p = Character("Player")
+#define p = Character("Player")
+define p = Character("[pname]", color="#ffffff")
 define mq = Character("马奇", color="#e3b008")
 define yz = Character("盐之", color="#f42727")
-define jc = Character("简诚", color="#c9f0f7")
+define jc = Character("简诚", color="#90b6bd")
 define ms = Character("毛莎", color="#3354c1")
 define msu = Character("毛笋", color="#e82b73")
 define qy = Character("千叶", color="#fd8426")
 
 # =====character image定义 =====
-image qianye_body_koalcoat = "images/qianye/qianye_body_koalacoat.png"
-image qianye_body_koalcoatred = "images/qianye/qianye_body_koalacoatred.png"
+#千叶
+image qy_body_koalcoat = "images/qianye/qianye_body_koalacoat.png"
+image qy_body_koalcoatred = "images/qianye/qianye_body_koalacoatred.png"
 
-image qianye_face_normal = "images/qianye/qianye_face_default.png"
-image qianye_face_displeasure = "images/qianye/cat.png"
-image qianye_face_happy = "images/qianye/qianye_face_happy.png"
-image qianye_face_confident = "images/qianye/qianye_face_confident.png"
-image qianye_face_sad = "images/qianye/qianye_face_sad.png"
-image qianye_face_speaking = "images/qianye/qianye_face_speaking.png"
-image qianye_face_unhappy = "images/qianye/qianye_face_unhappy.png"
-image qianye_face_quitenice = "images/qianye/qianye_face_quitenice.png"
-
-image yan_body_redcoat = "images/yanzhi/yan_body_redcoat.png"
-
-image yan_face_normal = "images/yanzhi/yan_face_normal.png"
-image yan_face_smile = "images/yanzhi/yan_face_smile.png"
-image yan_face_speak = "images/yanzhi/yan_face_speak.png"
-image yan_face_awkward = "images/yanzhi/yan_face_awkward.png"
-image yan_anime_blink = "images/yanzhi/yan_anime_blink.png"
+image qy_face_normal = "images/qianye/qianye_face_default.png"
+image qy_face_displeasure = "images/qianye/cat.png"
+image qy_face_happy = "images/qianye/qianye_face_happy.png"
+image qy_face_confident = "images/qianye/qianye_face_confident.png"
+image qy_face_sad = "images/qianye/qianye_face_sad.png"
+image qy_face_speaking = "images/qianye/qianye_face_speaking.png"
+image qy_face_unhappy = "images/qianye/qianye_face_unhappy.png"
+image qy_face_quitenice = "images/qianye/qianye_face_quitenice.png"
+#盐之
+image yz_body_redcoat = "images/yanzhi/yan_body_redcoat.png"
+image yz_face_normal = "images/yanzhi/yan_face_normal.png"
+image yz_face_smile = "images/yanzhi/yan_face_smile.png"
+image yz_face_speak = "images/yanzhi/yan_face_speak.png"
+image yz_face_awkward = "images/yanzhi/yan_face_awkward.png"
+image yz_anime_blink = "images/yanzhi/yan_anime_blink.png"
+#马奇
+image mq= "images/mq.png"
 
 # ===== layeredimage定义 =====
-layeredimage qianye:
+layeredimage qy:
     zoom 0.25
 
     group body:
@@ -41,25 +44,25 @@ layeredimage qianye:
     group face:
 
         attribute normal default:
-            "qianye_face_normal"
+            "qy_face_normal"
 
         attribute displeasure:
-            "qianye_face_displeasure"
+            "qy_face_displeasure"
 
         attribute happy:
-            "qianye_face_happy"
+            "qy_face_happy"
 
         attribute confident:
-            "qianye_face_confident"
+            "qy_face_confident"
         attribute sad:
-            "qianye_face_sad"   
+            "qy_face_sad"   
         attribute speaking:
-            "qianye_face_speaking"
+            "qy_face_speaking"
         attribute unhappy:
-            "qianye_face_unhappy"
+            "qy_face_unhappy"
         attribute quitenice:
-            "qianye_face_quitenice"
-layeredimage yan:
+            "qy_face_quitenice"
+layeredimage yz:
     #zoom 0.25
 
     group body:
@@ -69,16 +72,16 @@ layeredimage yan:
     group face:
 
         attribute normal default:
-            "yan_face_normal"
+            "yz_face_normal"
 
         attribute awkward:
-            "yan_face_awkward"
+            "yz_face_awkward"
 
         attribute smile:
-            "yan_face_smile"
+            "yz_face_smile"
 
         attribute speak:
-            "yan_face_speak"
+            "yz_face_speak"
         
 #===== bgimage定义 =====
 image park = "images/park.jpg"
@@ -91,16 +94,19 @@ image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 108
 
 
 #blinking animation for qianye's neutral face
-image qianye_face_normal_anim:
+image qy_face_normal_anim:
 
-    "qianye_face_normal"
+    "qy_face_normal"
     pause renpy.random.uniform(3.0, 6.0)  # 更自然一点
 
-    "qianye_face_closed"
+    "qy_face_closed"
     pause 0.1
 
     repeat
 
+#立绘翻转参数
+transform flip:
+    xzoom -1
 
 #开场演出
 label splashscreen:
@@ -173,29 +179,16 @@ label splashscreen:
 
 label start:
     #scene bg_parallax
+    
+    call work
+    $pname = renpy.input("在这里签上你的名字：", length=10, default="玩家")
+    $pname = pname.strip()  # 去除输入的前后空格
+    if pname == "":
+        $pname = "Player"
 
-    scene bg_back
-    show bg_mid
-    show bg_front
-    "测试空间感"
-    scene bulletin_board
-    "测试公告栏"
-    label bulletin_boardtest:
-        call screen bulletin_boardtest
-    label white:
-        "一张招募贝斯手的告示。"
-        "看来这支乐队缺人很久了。"
-        jump bulletin_boardtest
-    label yellow:
-        "Open Mic Night 报名名单。"
-        "很多名字都被划掉了。"
-        "似乎竞争很激烈。"
-        jump bulletin_boardtest
-    label brown:
-        "The Cosmic Drifters。"
-        "已经解散的地下乐队。"
-        "但似乎有人还在怀念他们。"
-        #jump bulletin_boardtest
+    call layoff
+    call train
+    call b_board
     call train_station_intro
     call zubizubi_route
     
@@ -217,45 +210,45 @@ label train_station_intro:
 
     p "！！"
 
-    show qianye koalcoat happy at center
+    show qy koalcoat happy at center
 
     p "千叶！！！"
 
-    show qianye koalcoat speaking
+    show qy koalcoat speaking
 
     qy "还以为你戴着耳机，得过一会儿才注意到我呢。"
 
     p "你很显眼好嘛。"
 
-    show qianye koalcoat quitenice
+    show qy koalcoat quitenice
 
     qy "可能只是在你眼中如此吧。"
 
     p "谢谢你，千叶，有你来接我真好。"
 
-    show qianye koalcoat happy
+    show qy koalcoat happy
 
     qy "乐意之至，正好今天餐厅也没什么事，我顺便出来放松放松。"
 
     p "说到餐厅......生意应该一如既往的好吧。"
 
-    show qianye koalcoat confident
+    show qy koalcoat confident
 
     qy "没错呢。"
 
-    show qianye koalcoat speaking
+    show qy koalcoat speaking
 
     qy "哦？这个随身听你居然还用着呢。"
 
     p "可能因为习惯了，所以就一直用到现在了。"
 
-    show qianye koalcoat quitenice
+    show qy koalcoat quitenice
 
     qy "也不知道现在这东西算复古还是时髦了。"
 
     p "嗯……确实不太好说。"
 
-    show qianye koalcoat happy
+    show qy koalcoat happy
 
     qy "走吧，先帮你把这些行李送回家。"
 
@@ -263,17 +256,17 @@ label train_station_intro:
 
     scene bg_player_home
 
-    show qianye koalcoat speaking at center
+    show qy koalcoat speaking at center
 
     qy "啊！终于摆脱了这些沉甸甸的家伙。"
 
-    show qianye koalcoat happy
+    show qy koalcoat happy
 
     "（千叶伸了个懒腰）"
 
     qy "真是难得的闲暇啊！"
 
-    show qianye koalcoat quitenice
+    show qy koalcoat quitenice
 
     qy "接下来打算做点什么吗？"
 
@@ -281,11 +274,11 @@ label train_station_intro:
 
         "就加入你的餐厅事业吧!":
 
-            show qianye koalcoat happy
+            show qy koalcoat happy
 
             qy "哈哈你想哪儿去了，我说的是今天的安排啦。"
 
-            show qianye koalcoat confident
+            show qy koalcoat confident
 
             qy "既然你还没什么头绪，那我们今天就去做点“复古又时髦”的事情吧。"
 
@@ -295,7 +288,7 @@ label train_station_intro:
 
         "其实我有点饿了。":
 
-            show qianye koalcoat happy
+            show qy koalcoat happy
 
             qy "看来即使今天休息，我也得在餐厅多待一会儿了。"
 
@@ -303,38 +296,38 @@ label train_station_intro:
 
             "考拉OK餐厅，也就是千叶家的餐厅......好像初中毕业后就没来过了。"
 
-            show qianye koalcoat happy at center
+            show qy koalcoat happy at center
 
             qy "久等了。这些都是还没正式进入菜单的新品哦。"
 
-            show qianye koalcoat confident
+            show qy koalcoat confident
 
             qy "恐怕也只有我请客，才有机会让“客人”提前吃到了。"
 
             p "看起来都很有秋天的风味呢。"
 
-            show qianye koalcoat happy
+            show qy koalcoat happy
 
             qy "嘿嘿，不过餐厅里的音乐还是夏天的感觉。"
 
-            show qianye koalcoat quitenice
+            show qy koalcoat quitenice
 
             qy "对了，给我讲讲你之前的上班生活吧.....讲给我这个没上过班的听听。"
 
             p "虽然没上过班，但每天都作为“餐厅继承人”工作得很努力呢。"
 
-            show qianye koalcoat speaking
+            show qy koalcoat speaking
 
             qy "低调、低调。毕竟按奶奶的说法，我现在还在“见习”阶段。"
 
             p "上班的话......嗯......该怎么形容呢?"
             p "回想起来，其实有点像每天都在过同一天。"
 
-            show qianye koalcoat unhappy
+            show qy koalcoat unhappy
 
             qy "听起来怎么有点惨。"
 
-            show qianye koalcoat quitenice
+            show qy koalcoat quitenice
 
             qy "不过，总该有点收获吧？"
 
@@ -345,7 +338,7 @@ label train_station_intro:
 
             p "如果按存款倒推的话，一年应该都没有关系。毕竟回来住，就不用考虑房租了。"
 
-            show qianye koalcoat happy
+            show qy koalcoat happy
 
             qy "听起来不错呢。既然钱和时间都有了，肚子现在应该也填饱。我们就出发去下一个地方吧！"
 
@@ -355,7 +348,7 @@ label train_station_intro:
 
         "…….完全没想好。":
 
-            show qianye koalcoat confident
+            show qy koalcoat confident
 
             qy "既然这样，那就交给我了。"
 
@@ -383,7 +376,7 @@ label zubizubi_route:
 
     "【背景图之后切换】"
 
-    show qianye koalcoat happy at center
+    show qy koalcoat happy at center
 
     qy "啊，已经能看到招牌了，前面就是了！"
 
@@ -392,7 +385,7 @@ label zubizubi_route:
     p "Zu……bi……Zubizubi？！"
     p "它不是初三的时候就倒闭了吗？"
 
-    show qianye koalcoat quitenice
+    show qy koalcoat quitenice
 
     qy "对啊，没想到已经复活后又开了这么久了。在你搬走之后。"
 
@@ -407,7 +400,7 @@ label zubizubi_route:
 
     scene bg_zubizubi_outside
 
-    show qianye koalcoat confident at center
+    show qy koalcoat confident at center
 
     qy "你继续回想吧，我要先走一步了。待在店里可比“呆”在外面有趣多了。"
 
@@ -419,7 +412,8 @@ label zubizubi_route:
 
     p "店里的货品怎么感觉比以前多了好几倍。"
 
-    show qianye koalcoat happy at left
+    show qy koalcoat happy at left, flip
+    
 
     qy "没错，更像“洞穴”了。"
 
@@ -432,13 +426,13 @@ label zubizubi_route:
 
     "她手里拿着一本漫画书，正聚精会神地翻阅着，似乎忽略了我们的光顾。"
 
-    show qianye koalcoat speaking
+    show qy koalcoat speaking
 
     qy "马奇，你在看什么啊——"
 
     "那位小姐的视线一下子从漫画上移了上来，露出了狡黠的笑容。"
 
-    show mq_normal at right
+    show mq at right, flip
 
     mq "千叶！我说怎么声音有些耳熟，原来是你来啦！"
 
@@ -448,7 +442,7 @@ label zubizubi_route:
 
     mq "不过乐队的聚餐也临近了，很快我就又能吃上考拉ok了。很多人、很多很多菜，嘻嘻嘻嘻......"
 
-    show qianye koalcoat happy
+    show qy koalcoat normal
 
     qy "欢迎你随时光临。"
 
@@ -462,7 +456,7 @@ label zubizubi_route:
 
     "???：欢迎光临，请稍等一下。我正在理货，马上就过来——"
 
-    p "你好，我叫player。是千叶以前的同学，今天刚搬回临春。"
+    p "你好，我叫[pname]。是千叶以前的同学，今天刚搬回临春。"
 
     mq "那真是太巧了，竟然还是千叶的老朋友啊！"
 
@@ -476,13 +470,13 @@ label zubizubi_route:
 
     mq "噢？那要不......"
 
-    show yan redcoat normal at center
+    show yz redcoat normal at center, flip
 
     "???：马小姐——一会儿没盯着你就吃了这么多？"
     "???：都说了，这是给来店的客人准备的。"
     "???：快把收银台让出来，你这位游手好闲的“常驻顾客”。"
 
-    show qianye koalcoat happy
+    show qy koalcoat happy
 
     qy "今天有你的排班啊，盐之。"
 
@@ -493,12 +487,12 @@ label zubizubi_route:
 
     "【久别重逢】"
 
-    show yan redcoat awkward
+    show yz redcoat awkward
 
     yz "......"
     yz "......好久不见。"
 
-    show yan redcoat speak
+    show yz redcoat speak
 
     yz "原来你......还会回来啊。"
 
@@ -508,7 +502,7 @@ label zubizubi_route:
 
         "好久不见。":
 
-            show yan redcoat normal
+            show yz redcoat normal
 
             p "好久不见。"
 
@@ -520,11 +514,11 @@ label zubizubi_route:
 
             p "你头发变长了。"
 
-            show yan redcoat awkward
+            show yz redcoat awkward
 
             "（盐之从一瞬间惊讶/喜悦快速变为傲娇/掩饰）"
 
-            show yan redcoat speak
+            show yz redcoat speak
 
             yz "你也变了很多。"
 
@@ -532,15 +526,14 @@ label zubizubi_route:
 
             p "长头发很适合你。"
 
-            show yan redcoat awkward
+            show yz redcoat awkward
 
             yz "怎么上来就说这种话。"
 
             "（盐之：气急败坏！“你怎么突然讲这种。”）"
 
     mq "等等？？？怎么感觉我好像错过了很多？"
-
-    show yan redcoat normal
+    show yz redcoat normal
 
     yz "毕竟算是从小一起长大的......甚至比千叶认识的更早。"
 
@@ -552,7 +545,7 @@ label zubizubi_route:
 
     mq "不行，那我就要和大家创造新的共同回忆！"
 
-    show qianye koalcoat happy
+    show qy koalcoat happy
 
     qy "一如既往的很有干劲呢。"
 
@@ -606,111 +599,32 @@ label train:
     #stop sound fadeout 1.0
 
     return
-label train_station:
-    scene trainstation
-
-    scene station
-
-    show qianye
-
-    "？？？" "上班生活过得怎么样啊？"
-    p "千叶！！！有你来接我真好！"
 
 
-    qy "那当然啦。正好今天餐厅没什么事，我也出来放松放松。"
 
-    p "上班的话……每天都像在过同一天。"
-
-    qy "听起来怎么有点惨。"
-    qy "不过，总该有点收获吧？"
-
-    p "……"
-    p "……钱倒是有攒下一些。"
-
-    qy "真是难得的闲暇啊！既然钱和时间都有了，接下来打算做点什么吗？"
-
-    menu:
-        "你打算做什么？"
-
-        "就加入你的餐厅事业吧":
-            qy "哈哈你想哪儿去了，我说的是今天的安排啦。"
-            jump after_choice
-
-        "有点饿了":
-            qy "看来即使今天休息，我有段餐厅也得在餐厅里度过啦。"
-            jump after_choice
-
-        "完全没想好":
-            qy "我知道我们今天可以去干什么啦。"
-            jump after_choice
-    return
-
-label after_choice:
-
-    # 后续剧情继续写这里
-
-
-    return
-
-
-init python:
-
-    class ParallaxDisplayable(renpy.Displayable):
-
-        def __init__(self, child, depth=20.0, speed=0.1, **kwargs):
-            super(ParallaxDisplayable, self).__init__(**kwargs)
-
-            self.child = renpy.displayable(child)
-
-            # 当前偏移
-            self.x = 0.0
-            self.y = 0.0
-
-            # 目标偏移
-            self.tx = 0.0
-            self.ty = 0.0
-
-            self.depth = depth
-            self.speed = speed
-
-
-        def render(self, width, height, st, at):
-            rv = renpy.Render(width, height)
-
-            # === 获取鼠标位置（关键修复点）===
-            mx, my = renpy.get_mouse_pos()
-
-            # 屏幕中心
-            cx = width / 2
-            cy = height / 2
-
-            # 转换为偏移
-            dx = (mx - cx) / self.depth
-            dy = (my - cy) / self.depth
-
-            # 目标位置（反向）
-            self.tx = -dx
-            self.ty = -dy
-
-            # === 缓动 ===
-            self.x += (self.tx - self.x) * self.speed
-            self.y += (self.ty - self.y) * self.speed
-
-            # === 渲染子图 ===
-            cr = renpy.render(self.child, width, height, st, at)
-            rv.blit(cr, (self.x, self.y))
-
-            # 持续刷新
-            renpy.redraw(self, 0)
-
-            return rv
-#image bg_parallax = ParallaxDisplayable("bg.png", depth=30)
-    #scene bg_back
-    #show bg_mid
-    #show bg_front
-image bg_back  = ParallaxDisplayable("back.png", depth=60)
-image bg_mid   = ParallaxDisplayable("mid.png", depth=35)
-image bg_front = ParallaxDisplayable("face.png", depth=20)
+label b_board:
+    scene bg_back
+    show bg_mid
+    show bg_front
+    "测试空间感"
+    scene bulletin_board
+    "测试公告栏"
+    label bulletin_boardtest:
+        call screen bulletin_boardtest
+    label white:
+        "一张招募贝斯手的告示。"
+        "看来这支乐队缺人很久了。"
+        jump bulletin_boardtest
+    label yellow:
+        "Open Mic Night 报名名单。"
+        "很多名字都被划掉了。"
+        "似乎竞争很激烈。"
+        jump bulletin_boardtest
+    label brown:
+        "The Cosmic Drifters。"
+        "已经解散的地下乐队。"
+        "但似乎有人还在怀念他们。"
+        #jump bulletin_boardtest
 
 #可交互公告栏代码
 screen bulletin_boardtest:
