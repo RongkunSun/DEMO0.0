@@ -582,7 +582,7 @@ label after_intro:
     "【切入店外隐约的午后蝉鸣与微风声】"
     "回到临春的第一天，似乎比想象中还要热闹得多。"
 
-   label after_date:
+label after_date:
 
     "暂时到家"
 
