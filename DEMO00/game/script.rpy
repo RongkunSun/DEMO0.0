@@ -625,7 +625,7 @@ label sleep_route:
     return
 
 
-label park_scene:
+label park_route:
 
     scene park
 
