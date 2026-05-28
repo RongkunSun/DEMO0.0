@@ -814,6 +814,8 @@ label jiancheng_intro:
             p "原来叫Kidsplay啊。"
 
             jc "点了点头（面带笑意）"
+            jump maosha_intro
+
 
 
         "你是怎么认识千叶的？":
@@ -839,6 +841,8 @@ label jiancheng_intro:
             "说着他抬了抬手腕, 轻轻晃了晃手环。"
 
             "仔细一看，原来连颜色和印字都一样。"
+            jump maosha_intro
+
 
 
 label maosha_intro:
