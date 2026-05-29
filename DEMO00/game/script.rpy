@@ -23,6 +23,16 @@ image qy_face_sad = "images/qianye/qianye_face_sad.png"
 image qy_face_speaking = "images/qianye/qianye_face_speaking.png"
 image qy_face_unhappy = "images/qianye/qianye_face_unhappy.png"
 image qy_face_quitenice = "images/qianye/qianye_face_quitenice.png"
+#529新增
+image qy_face_nor11 = "images/qianye/qy_face_nor11.png"
+image qy_face_nor12 = "images/qianye/qy_face_nor12.png"
+image qy_face_pos11 = "images/qianye/qy_face_pos11.png"
+image qy_face_pos12 = "images/qianye/qy_face_pos12.png"
+image qy_face_pos13 = "images/qianye/qy_face_pos13.png"
+image qy_face_pos14 = "images/qianye/qy_face_pos14.png"
+image qy_face_wow11 = "images/qianye/qy_face_wow12.png"
+image qy_face_emm11 = "images/qianye/qy_face_emm12.png"
+image qy_face_emm12 = "images/qianye/qy_face_emm12.png"
 #盐之
 image yz_body_redcoat = "images/yanzhi/yan_body_redcoat.png"
 image yz_face_normal = "images/yanzhi/yan_face_normal.png"
@@ -35,7 +45,7 @@ image mq= "images/mq.png"
 
 # ===== layeredimage定义 =====
 layeredimage qy:
-    zoom 0.25
+    #zoom 0.25
 
     group body:
         attribute koalcoat default
@@ -62,6 +72,30 @@ layeredimage qy:
             "qy_face_unhappy"
         attribute quitenice:
             "qy_face_quitenice"
+        #529新增
+        attribute nor11:
+            "qy_face_nor11"
+        attribute nor12:
+            "qy_face_nor12"
+
+        attribute pos11:
+            "qy_face_pos11"
+        attribute pos12:
+            "qy_face_pos12"
+        attribute pos13:
+            "qy_face_pos13"
+        attribute pos14:
+            "qy_face_pos14"
+            
+        attribute wow11:
+            "qy_face_wow11"
+
+        attribute emm11:
+            "qy_face_emm11"
+        attribute emm12:
+            "qy_face_emm12"
+        
+            
 layeredimage yz:
     #zoom 0.25
 
@@ -210,7 +244,7 @@ label zubizubi_intro:
     p "！！"
     p "千叶！！！"
 
-    show qy happy
+    show qy pos11
 
     qy "还以为你戴着耳机，得过一会儿才注意到我呢。"
     p "你很显眼好嘛。"
