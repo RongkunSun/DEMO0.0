@@ -141,6 +141,14 @@ image qy_face_normal_anim:
 #立绘翻转参数
 transform flip:
     xzoom -1
+#人物登场/退场参数
+transform char_enter:
+    alpha 0.0
+    linear 0.3 alpha 1.0
+
+transform char_exit:
+    on hide:
+        linear 0.3 alpha 0.0
 
 #开场演出
 label splashscreen:
@@ -237,7 +245,7 @@ label start:
     return
 
 label zubizubi_intro:
-    show qy posl1
+    show qy posl1 at char_enter
     "？？？：这家伙看起来和之前......好像也没什么变化嘛？"
     "？？？：不是都说上过班的人，会看起来不一样吗？"
 
@@ -265,7 +273,7 @@ label zubizubi_intro:
     qy "走吧，先帮你把这些行李送回家。"
     p "嗯！"
 
-    hide qy posl4
+    hide qy
 
     scene trainstation
 
