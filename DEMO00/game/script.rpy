@@ -1,5 +1,8 @@
 ﻿# 游戏的脚本可置于此文件中。
 
+#全局溶解效果
+#define config.say_attribute_transition = Dissolve(0.4)
+
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
 #define p = Character("Player")
 define p = Character("[pname]", color="#ffffff")
@@ -237,22 +240,22 @@ label start:
     return
 
 label zubizubi_intro:
-    show qy posl1
+    show qy posl1 with Dissolve
     "？？？：这家伙看起来和之前......好像也没什么变化嘛？"
     "？？？：不是都说上过班的人，会看起来不一样吗？"
 
     p "！！"
     p "千叶！！！"
 
-    show qy posl3
+    show qy posl3 with Dissolve
 
     qy "还以为你戴着耳机，得过一会儿才注意到我呢。"
     p "你很显眼好嘛。"
     qy "可能只是在你眼中如此吧。"
-    show qy posl2
+    show qy posl2 with Dissolve
     p "谢谢你，千叶，有你来接我真好。"
     qy "乐意之至，正好今天餐厅也没什么事，我顺便出来放松放松。"
-    show qy wowl1
+    show qy wowl1 with Dissolve
     p "说到餐厅......生意应该一如既往的好吧。"
     qy "没错呢。"
 
