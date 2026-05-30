@@ -24,15 +24,15 @@ image qy_face_speaking = "images/qianye/qianye_face_speaking.png"
 image qy_face_unhappy = "images/qianye/qianye_face_unhappy.png"
 image qy_face_quitenice = "images/qianye/qianye_face_quitenice.png"
 #529新增
-image qy_face_nor11 = "images/qianye/qy_face_nor11.png"
-image qy_face_nor12 = "images/qianye/qy_face_nor12.png"
-image qy_face_pos11 = "images/qianye/qy_face_pos11.png"
-image qy_face_pos12 = "images/qianye/qy_face_pos12.png"
-image qy_face_pos13 = "images/qianye/qy_face_pos13.png"
-image qy_face_pos14 = "images/qianye/qy_face_pos14.png"
-image qy_face_wow11 = "images/qianye/qy_face_wow12.png"
-image qy_face_emm11 = "images/qianye/qy_face_emm12.png"
-image qy_face_emm12 = "images/qianye/qy_face_emm12.png"
+image qy_face_norl1 = "images/qianye/qy_face_nor11.png"
+image qy_face_norl2 = "images/qianye/qy_face_nor12.png"
+image qy_face_posl1 = "images/qianye/qy_face_pos11.png"
+image qy_face_posl2 = "images/qianye/qy_face_pos12.png"
+image qy_face_posl3 = "images/qianye/qy_face_pos13.png"
+image qy_face_posl4 = "images/qianye/qy_face_pos14.png"
+image qy_face_wowl1 = "images/qianye/qy_face_wow11.png"
+image qy_face_emml1 = "images/qianye/qy_face_emm12.png"
+image qy_face_emml2 = "images/qianye/qy_face_emm12.png"
 #盐之
 image yz_body_redcoat = "images/yanzhi/yan_body_redcoat.png"
 image yz_face_normal = "images/yanzhi/yan_face_normal.png"
@@ -73,27 +73,27 @@ layeredimage qy:
         attribute quitenice:
             "qy_face_quitenice"
         #529新增
-        attribute nor11:
-            "qy_face_nor11"
-        attribute nor12:
-            "qy_face_nor12"
+        attribute norl1:
+            "qy_face_norl1"
+        attribute norl2:
+            "qy_face_norl2"
 
-        attribute pos11:
-            "qy_face_pos11"
-        attribute pos12:
-            "qy_face_pos12"
-        attribute pos13:
-            "qy_face_pos13"
-        attribute pos14:
-            "qy_face_pos14"
+        attribute posl1:
+            "qy_face_posl1"
+        attribute posl2:
+            "qy_face_posl2"
+        attribute posl3:
+            "qy_face_posl3"
+        attribute posl4:
+            "qy_face_posl4"
             
-        attribute wow11:
-            "qy_face_wow11"
+        attribute wowl1:
+            "qy_face_wowl1"
 
-        attribute emm11:
-            "qy_face_emm11"
-        attribute emm12:
-            "qy_face_emm12"
+        attribute emml1:
+            "qy_face_emml1"
+        attribute emml2:
+            "qy_face_emml2"
         
             
 layeredimage yz:
@@ -237,22 +237,22 @@ label start:
     return
 
 label zubizubi_intro:
-
+    show qy posl1
     "？？？：这家伙看起来和之前......好像也没什么变化嘛？"
     "？？？：不是都说上过班的人，会看起来不一样吗？"
 
     p "！！"
     p "千叶！！！"
 
-    show qy pos11
+    show qy posl3
 
     qy "还以为你戴着耳机，得过一会儿才注意到我呢。"
     p "你很显眼好嘛。"
     qy "可能只是在你眼中如此吧。"
-
+    show qy posl2
     p "谢谢你，千叶，有你来接我真好。"
     qy "乐意之至，正好今天餐厅也没什么事，我顺便出来放松放松。"
-
+    show qy wowl1
     p "说到餐厅......生意应该一如既往的好吧。"
     qy "没错呢。"
 
@@ -265,7 +265,7 @@ label zubizubi_intro:
     qy "走吧，先帮你把这些行李送回家。"
     p "嗯！"
 
-    hide qy
+    hide qy posl4
 
     scene trainstation
 
