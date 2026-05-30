@@ -1,7 +1,4 @@
-﻿# 游戏的脚本可置于此文件中。
-
-#全局溶解效果
-#define config.say_attribute_transition = Dissolve(0.4)
+# 游戏的脚本可置于此文件中。
 
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
 #define p = Character("Player")
@@ -96,9 +93,7 @@ layeredimage qy:
         attribute emml1:
             "qy_face_emml1"
         attribute emml2:
-            "qy_face_emml2"
-        
-            
+            "qy_face_emml2"         
 layeredimage yz:
     #zoom 0.25
 
@@ -128,6 +123,7 @@ image toilet ="images/openning/temp_toilet.png"
 image layoff = "images/openning/temp_layoff.png"
 image map = "images/openning/temp_map.png"
 image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 1080)
+image ts = "images/bg/bg_trainstation2.png"
 
 
 #blinking animation for qianye's neutral face
@@ -240,31 +236,35 @@ label start:
     return
 
 label zubizubi_intro:
-    show qy posl1 with Dissolve
+    
+    scene ts
+
     "？？？：这家伙看起来和之前......好像也没什么变化嘛？"
     "？？？：不是都说上过班的人，会看起来不一样吗？"
 
     p "！！"
     p "千叶！！！"
 
-    show qy posl3 with Dissolve
+    show qy posl1
 
     qy "还以为你戴着耳机，得过一会儿才注意到我呢。"
     p "你很显眼好嘛。"
+    show qy emml2
     qy "可能只是在你眼中如此吧。"
-    show qy posl2 with Dissolve
     p "谢谢你，千叶，有你来接我真好。"
+    show qy posl2
     qy "乐意之至，正好今天餐厅也没什么事，我顺便出来放松放松。"
-    show qy wowl1 with Dissolve
     p "说到餐厅......生意应该一如既往的好吧。"
+    show qy posl1
     qy "没错呢。"
-
+    show qy wowl1
     qy "哦？这个随身听你居然还用着呢。"
     p "可能因为习惯了，所以就一直用到现在了。"
 
     qy "也不知道现在这东西算复古还是时髦了。"
+    show qy wowl1
     p "嗯……确实不太好说。"
-
+    show qy posl1
     qy "走吧，先帮你把这些行李送回家。"
     p "嗯！"
 
@@ -272,11 +272,13 @@ label zubizubi_intro:
 
     scene trainstation
 
-    show qy confident
-
+    show qy posl4
     qy "啊！终于摆脱了这些沉甸甸的家伙。"
+    hide qy
     qy "(伸了个懒腰)"
+    show qy posl3
     qy "真是难得的闲暇啊！"
+    show qy posl2
     qy "接下来打算做点什么吗？"
 
     menu:
@@ -292,16 +294,21 @@ label zubizubi_intro:
 
 label choice1:
 
+    show qy posl3
     qy "哈哈你想哪儿去了，我说的是今天的安排啦。"
+    show qy emml2
     qy "既然你还没什么头绪，那我们今天就去做点“复古又时髦”的事情吧。"
     p "诶, 要去干什么啊？"
+    hide qy
 
     jump cont13
 
 
 label choice2:
 
+    show qy emml2
     qy "看来即使今天休息，我也得在餐厅多待一会儿了。"
+    hide qy
 
     scene black with fade
 
@@ -310,43 +317,52 @@ label choice2:
     scene black with fade
 
     "【进店的开门音效专场，开始播放夏日餐厅bgm】"
-
+    
+    show qy emml2
     qy "久等了。这些都是还没进入菜单的新品哦，下个月才会正式上架。"
+    show qy wowl1
     qy "大部分还在研发阶段，最近几天应该还会做一些口味上的调整。"
+    show qy posl1
     qy "大概只有我请客，才有机会让“客人”提前吃到了。"
 
     p "看起来都很有秋天的风味呢。"
+    show qy norl2
     qy "忙活了好几周才敲定的，希望吃起来也是如此吧。"
+    show qy emml1
     qy "唉——餐厅里倒是还放着夏天的音乐呢"
-
+    show qy posl2
     qy "对了，给我讲讲你之前的上班生活吧.....讲给我这个没上过班的听听。"
     p "虽然没上过班，但每天都作为“餐厅继承人”工作得很努力呢。"
-
+    show qy emml2
     qy "低调、低调。毕竟按奶奶的说法，我现在还在“见习”阶段。"
 
     p "上班的话......嗯......该怎么形容呢?"
     p "回想起来，其实有点像每天都在过同一天。"
-
+    show qy wowl1
     qy "听起来怎么有点惨。"
+    show qy posl1
     qy "不过，总该有点收获吧？"
-
+    hide qy
     p "……"
     p "……钱倒是有攒下一些。"
-
+    show qy posl1
     qy "那这次回来，你打算停留多久啊？"
 
     p "如果按存款倒推的话，一年应该都没有关系。毕竟回来住，就不用考虑房租了。"
     p "总之，暂时还不至于流落街头。"
-
+    show qy posl3
     qy "听起来不错呢。既然钱和时间都有了，肚子现在应该也填饱。我们就出发去下一个地方吧！"
     p "诶, 要去哪里啊？"
+    hide qy
 
     jump cont13
 
 
 label choice3:
 
+    show qy posl3
     qy "既然这样，那就交给我了。"
+    show qy posl2
     qy "今天就去做点“复古又时髦”的事情吧！"
     p "诶, 要做什么啊？"
 
@@ -363,25 +379,24 @@ label cont13:
 
     scene black with fade
 
-    "After 1、2、3"
-    "【进店前】"
-
+    show qy wowl1
     qy "啊，已经能看到招牌了，前面就是了！"
-
+    hide qy
     "我顺着千叶手指着的方向看去。"
 
     p "Zu……bi……Zubizubi？！"
     p "它不是初三的时候就倒闭了吗？"
-
+    show qy emml2
     qy "是啊，没想到它后来复活了。而且一晃眼又开了这么久了。"
+    show qy wowl1
     qy "在你搬走后，确实还发生了不少事情呢......"
-
+    hide qy
     "Zubizubi……嗯……该怎么形容它呢？"
     "印象里它好像什么关于音乐的“东西”都会卖......"
     "以前放学后，我也经常会和朋友一起来。"
 
     p "Zubizubi音乐杂货铺，好怀念啊。不过从外观看，它现在已经是新的样子了。"
-
+    show qy emml2
     qy "你继续回想吧，我要先走一步了。待在店里可比“呆”在外面有趣多了。"
     p "等等我！"
 
