@@ -40,12 +40,14 @@ image qy_face_wowl1 = "images/qianye/qy_face_wow11.png"
 image qy_face_emml1 = "images/qianye/qy_face_emm12.png"
 image qy_face_emml2 = "images/qianye/qy_face_emm12.png"
 #盐之
-image yz_body_redcoat = "images/yanzhi/yan_body_redcoat.png"
+image yz_body_redcoat = "images/yz/yz_body_redcoat.png"
 image yz_face_normal = "images/yanzhi/yan_face_normal.png"
 image yz_face_smile = "images/yanzhi/yan_face_smile.png"
 image yz_face_speak = "images/yanzhi/yan_face_speak.png"
 image yz_face_awkward = "images/yanzhi/yan_face_awkward.png"
 image yz_anime_blink = "images/yanzhi/yan_anime_blink.png"
+#531新增
+image yz_face_wowl1 = "images/yz/face/yz_face_wowl1.png"
 #马奇
 image mq_body_greencoat= "images/mq/mq_body_greencoat.png"
 image mq_face_wowl1 = "images/mq/face/mq_face_wowl1.png"
@@ -150,6 +152,9 @@ layeredimage yz:
 
         attribute speak:
             "yz_face_speak"
+        #531新增
+        attribute wowl1:
+            "yz_face_wowl1"
 layeredimage mq:
 
     group body:
@@ -222,6 +227,7 @@ image ts = "images/bg/bg_trainstation2.png"
 image zubi_in = "images/bg/bg_zubi_in.png"
 image zubi_out = "images/bg/bg_zubi_out.png"
 image zubi_mid = "images/bg/bg_zubi_mid.png"
+image zubi_counter = "images/bg/bg_zubi_counter.png"
 image street_home1 = "images/bg/bg_street_home1.png"
 image street_home2 = "images/bg/bg_street_home2.png"
 image phome_livingroom = 'images/bg/bg_phome_livingroom.png'
@@ -470,7 +476,6 @@ label choice2:
     hide qy
     scene black with fade
     jump outside_shop
-
 label choice3:
 
     show qy posl3
@@ -482,15 +487,15 @@ label choice3:
 
     jump cont13
 
-
 label cont13:
 
+    scene street_home2 with fade
+    pause 0.3
     scene coala_out with fade
     "千叶和我是初中同班同学，她家在临春经营着“考拉OK”的音乐餐厅。"
     "说起来，这家餐厅好像从我记事起就已经存在了。\n而去过的人，大概都会对它印象深刻。\n毕竟从各个方面来说，它都算得上“极具特色”。"#(考拉逐渐侵略整个画面）
     "......不过我和千叶现在好像不在去往餐厅的方向。真不知道千叶要把我们带到哪里去......"
 
-    scene black with fade
 label outside_shop:
 
     show qy wowl1
@@ -527,7 +532,7 @@ label outside_shop:
     show qy wowl1
     qy "这里的店员应该工作得很辛苦吧，毕竟要维护这么多商品。"
     
-    scene zubi_in
+    scene zubi_in with fade
     show qy wowl1
 
     qy "诶，你看！这里竟然有这个，感觉上次好像看舅舅摆弄过类似的东西。"
@@ -560,7 +565,7 @@ label outside_shop:
     show qy emml2
     qy "可能是老板的新爱好吧。不过我也好一阵子没见到她了。"
     hide qy
-
+    scene zubi_counter with fade
     "接着，我注意到一位很酷的小姐杵在收银台后。{p}台面上散落着一些泡泡糖纸。"
 
 
@@ -580,7 +585,7 @@ label outside_shop:
     mq_unknown "好久不见，我正打算餐厅出新菜品的时候去找你玩呢！"
     show mq thinkl1
     qy_unknown "嗯？不过，乐队的聚餐也临近了......"
-    show mq posl4h
+    show mq posl4
     qy_unknown "到时候很多人，很多很多菜，嘻嘻嘻嘻......"
     
     show qy emml2
@@ -599,7 +604,6 @@ label outside_shop:
         "你好，我叫[pname]，是千叶以前的同学。":
             jump intro2
             hide black
-
 
 label intro1:
     show mq posl1 at left
@@ -631,8 +635,6 @@ label intro1:
             p "原来是这样啊。"
 
     jump after_intro
-
-
 label intro2:
     show mq posl1 at left
     mq "真羡慕啊！{w=0.3}像你们这种从小就认识的友谊。我叫马奇，算是这里的......常客吧？{p}当然也是千叶家餐厅的忠实粉丝。"
@@ -654,7 +656,6 @@ label intro2:
     hide mq
 
     jump after_intro
-
 
 label after_intro:
 
@@ -769,19 +770,22 @@ label after_intro:
             show mq posl4
             mq "一言为定哦！{w=0.3}到时候在台下看不到可爱的你们我会伤心的。"
             hide mq
-
+    scene zubi_in with fade
     yz_unknown "刚才是什么动静？！我在库房都听到了，我以为你只是来安静地看会儿漫画的，马小姐——"
-    
+    scene zubi_counter with fade
+    show mq wowl1
     mq "哦，对喽，今天我们乐队的另一个家伙碰巧也在。"
-
+    scene zubi_in with fade
     yz_unknown "什么？来客人了你也不跟我讲一声？！还是我在这边伸着脖子才看到的......"
     "声音听着有些耳熟。"
     yz_unknown "稍等一下，我马上就来——"
     "总觉得在哪里听过这个声音。{w=0.5}可一时半会儿又想不起来。"
+    scene zubi_counter with fade
+    show qy emml2
     "千叶朝货架后方瞟了一眼，微微往前探了探脑袋，{w=0.5}然后一脸坏笑地看向了我。"
-
+    show qy posl2
     qy "哦？{w=0.3}原来今天不止马奇在，连盐之也在啊。"
-
+    hide qy
     "——“盐之”？"
     p "......盐之......"
 
@@ -790,6 +794,7 @@ label after_intro:
 
     menu:
         "看去":
+            show yz wowl1
             yz "嗯？你怎么会出现在这里。"
             yz "马奇和千叶看起来没问题啊，都和平时一个样，原来——"
             yz "你真的回来啦。"
