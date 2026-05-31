@@ -236,6 +236,15 @@ image qy_face_normal_anim:
 transform flip:
     xzoom -1
 
+#人物登场/退场参数
+transform char_enter:
+    alpha 0.0
+    linear 0.3 alpha 1.0
+
+transform char_exit:
+    on hide:
+        linear 0.3 alpha 0.0
+
 #开场演出
 label splashscreen:
     scene black
