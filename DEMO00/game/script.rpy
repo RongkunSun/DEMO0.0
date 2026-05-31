@@ -542,6 +542,7 @@ label outside_shop:
     qy "诶，你看！这里竟然有这个，感觉上次好像看舅舅摆弄过类似的东西。"
     hide qy
     "说着，千叶拿起那个摆在货架旁的细长圆筒，左右倾斜了一下。{p}里面发出“哗啦哗啦”豆子滚过般的声音。"
+    play sound "audio/soundeffect/rainstick1.wav"
 
     menu:
         "竟然会发出这种声音啊。":
