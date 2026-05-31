@@ -220,6 +220,8 @@ image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 108
 
 image ts = "images/bg/bg_trainstation2.png"
 image zubi_in = "images/bg/bg_zubi_in.png"
+image zubi_out = "images/bg/bg_zubi_out.png"
+image zubi_mid = "images/bg/bg_zubi_mid.png"
 image street_home1 = "images/bg/bg_street_home1.png"
 image street_home2 = "images/bg/bg_street_home2.png"
 image phome_livingroom = 'images/bg/bg_phome_livingroom.png'
@@ -495,7 +497,7 @@ label cont13:
     qy "啊，已经能看到招牌了，前面就是了！"
     hide qy
     "我顺着千叶手指着的方向看去。"
-
+    scene zubi_out with fade
     p "Zu......bi......Zubizubi？！"
     p "它不是初三的时候就倒闭了吗？"
     show qy emml2
@@ -512,7 +514,7 @@ label cont13:
     qy "你继续回想吧，我要先走一步了。待在店里可比“呆”在外面有趣多了。"
     p "等等我！"
 
-    scene shop
+    scene zubi_mid with fade
 
     "进店，熟悉又陌生的感觉扑面而来。依旧是琳琅满目的cd、唱片和器材配件。"
     "角落里堆放的不是一捆一捆的音乐杂志，就是什么猜不出从哪儿来也猜不出怎么用的乐器。"
@@ -520,7 +522,7 @@ label cont13:
     p "货品......怎么感觉比以前多了好几倍?!"
     show qy posl1
     qy "没错，更像“洞穴”了。"
-    hide black
+    hide qy
     "尽管店内的过道因为大小不一的货品很维持笔直流畅的线条，{p}
     但目之所及的物品比起盖着一层毛绒绒的灰尘，{p}
     反而干净的出奇，是有些表面还带着点反光的那种。"
@@ -838,7 +840,7 @@ label after_intro:
     qy "现在，赶紧去上课吧。{w=0.3}你也不想来让来上课的小朋友在教室苦苦等待吧。"
 
     mq "可是我八卦还没听够啊喂！！下次、下次, [pname]一定要讲给我听啊！！"
-    【“哐当”一声，门被带上了。】
+
     "店内音箱里的音乐不知不觉换了一首。"
 
     "【切入店外隐约的午后蝉鸣与微风声】"
