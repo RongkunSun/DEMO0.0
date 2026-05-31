@@ -640,11 +640,14 @@ label after_intro:
     yz "那就拜托了，我先回后面了。"
     show yz posl3w
     yz "有问题就喊我！"
-    
+    hide yz at char_out
     p "嗯。"
+    hide qy at char_out
+    scene zubi_mid with fade
     "盐之回到库房去了。{p}我和千叶又在店里停留了一小会儿。"
+    scene zubi_out with fade
     "再出来时，外面的太阳亮得有些刺眼。"
-
+    scene street_home2 with fade
     #【切入店外隐约的午后蝉鸣与微风声】#
     "回到临春的第一天，似乎比想象中还要热闹得多。"
 
