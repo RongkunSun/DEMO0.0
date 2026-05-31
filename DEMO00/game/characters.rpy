@@ -17,7 +17,7 @@ define mq_unknown = Character( "？？？", color="#e3b008")
 
 define fana = Character("观众A", color="#a2c5cf")
 define fanb = Character("观众B", color="#a2adcf")
-define fanc = Character("观众C", color="#cfa2cd")
+define fanab = Character("观众A、观众B", color="#cfa2cd")
 define fand = Character("观众D", color="#cfcda2")
 define truefan = Character("真爱粉", color="#4db340")
 
