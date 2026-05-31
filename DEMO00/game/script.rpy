@@ -48,6 +48,7 @@ image yz_face_awkward = "images/yanzhi/yan_face_awkward.png"
 image yz_anime_blink = "images/yanzhi/yan_anime_blink.png"
 #531新增
 image yz_face_wowl1 = "images/yz/face/yz_face_wowl1.png"
+image yz_face_thinkl1 = "images/yz/face/yz_face_think1.png"
 #马奇
 image mq_body_greencoat= "images/mq/mq_body_greencoat.png"
 image mq_face_wowl1 = "images/mq/face/mq_face_wowl1.png"
@@ -155,6 +156,8 @@ layeredimage yz:
         #531新增
         attribute wowl1:
             "yz_face_wowl1"
+        attribute thinkl1:
+            "yz_face_thinkl1"
 layeredimage mq:
 
     group body:
@@ -796,7 +799,7 @@ label after_intro:
 
     menu:
         "看去":
-            show yz wowl1 at char_enter
+            show yz wowl1 #at char_enter
             yz "嗯？你怎么会出现在这里。"
             yz "马奇和千叶看起来没问题啊，都和平时一个样，原来——"
             yz "你真的回来啦。"
