@@ -47,7 +47,37 @@ image yz_face_speak = "images/yanzhi/yan_face_speak.png"
 image yz_face_awkward = "images/yanzhi/yan_face_awkward.png"
 image yz_anime_blink = "images/yanzhi/yan_anime_blink.png"
 #马奇
-image mq= "images/mq.png"
+image mq_body_greencoat= "images/mq/mq_body_greencoat.png"
+image mq_face_wowl1 = "images/mq/face/mq_face_wowl1.png"
+image mq_face_wowl2 = "images/mq/face/mq_face_wowl2.png"
+image mq_face_thinkl1 = "images/mq/face/mq_face_thinkl1.png"
+image mq_face_thinkl2 = "images/mq/face/mq_face_thinkl2.png"
+image mq_face_emol1 = "images/mq/face/mq_face_emol1.png"
+image mq_face_huhl1 = "images/mq/face/mq_face_huhl1.png"
+image mq_face_naul1 = "images/mq/face/mq_face_naul1.png"
+image mq_face_pail1 = "images/mq/face/mq_face_pail1.png"
+
+image mq_face_posl1 = "images/mq/face/mq_face_posl1.png"
+image mq_face_posl1 = "images/mq/face/mq_face_posl1.png"
+image mq_face_posl2 = "images/mq/face/mq_face_posl2.png"
+image mq_face_posl3 = "images/mq/face/mq_face_posl3.png"
+image mq_face_posl4 = "images/mq/face/mq_face_posl4.png"
+image mq_face_posl5 = "images/mq/face/mq_face_posl5.png"
+image mq_face_posl1h = "images/mq/face/mq_face_posl1h.png"
+
+image mq_face_posl4h = "images/mq/face/mq_face_posl4h.png"
+image mq_face_wowl1h = "images/mq/face/mq_face_wowl1h.png"
+image mq_face_wow21h = "images/mq/face/mq_face_wowl2h.png"
+image mq_face_posl6h = "images/mq/face/mq_face_posl6h.png"
+image mq_face_norl1h = "images/mq/face/mq_face_norl1h.png"
+image mq_face_norl1hw = "images/mq/face/mq_face_norl1hw.png"
+image mq_face_posl4b = "images/mq/face/mq_face_posl4b.png"
+image mq_face_sadl0b = "images/mq/face/mq_face_sadl0b.png"
+image mq_face_posl2b = "images/mq/face/mq_face_posl2b.png"
+image mq_face_posl2w = "images/mq/face/mq_face_posl2w.png"
+image mq_face_wowl1w= "images/mq/face/mq_face_wowl1w.png"
+
+
 
 # ===== layeredimage定义 =====
 layeredimage qy:
@@ -120,7 +150,65 @@ layeredimage yz:
 
         attribute speak:
             "yz_face_speak"
-        
+layeredimage mq:
+
+    group body:
+        attribute greencoat default
+     
+    group face:
+
+        attribute posl1 default:
+            "mq_face_posl1"
+        attribute wowl1:
+            "mq_face_wowl1"
+        attribute wowl2:
+            "mq_face_wowl2"
+        attribute thinkl1:
+            "mq_face_thinkl1"
+        attribute thinkl2:
+            "mq_face_thinkl2"
+        attribute emol1:
+            "mq_face_emol1"
+        attribute huhl1:
+            "mq_face_huhl1"
+        attribute naul1:
+            "mq_face_naul1"
+        attribute pail1:
+            "mq_face_pail1"
+        attribute posl2:
+            "mq_face_posl2"
+        attribute posl3:
+            "mq_face_posl3"
+        attribute posl4:
+            "mq_face_posl4"
+        attribute posl5:
+            "mq_face_posl5"
+        attribute posl1h:
+            "mq_face_posl1h"
+        attribute posl4h:
+            "mq_face_posl4h"
+        attribute wowl1h:
+            "mq_face_wowl1h"
+        attribute wowl2h:
+            "mq_face_wow21h"
+        attribute posl6h:
+            "mq_face_posl6h"
+        attribute norl1h:
+            "mq_face_norl1h"
+        attribute norl1hw:
+            "mq_face_norl1hw"
+        attribute posl4b:
+            "mq_face_posl4b"
+        attribute sadl0b:
+            "mq_face_sadl0b"
+        attribute posl2b:
+            "mq_face_posl2b"
+        attribute posl2w:
+            "mq_face_posl2w"
+        attribute wowl1w:
+            "mq_face_wowl1w"
+
+
 #===== bgimage定义 =====
 image park = "images/park.jpg"
 image office ="images/openning/temp_office.png"
@@ -130,6 +218,7 @@ image layoff = "images/openning/temp_layoff.png"
 image map = "images/openning/temp_map.png"
 image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 1080)
 image ts = "images/bg/bg_trainstation2.png"
+image zubi_in = "images/bg/bg_zubi_in.png"
 
 
 #blinking animation for qianye's neutral face
@@ -297,7 +386,6 @@ label zubizubi_intro:
         "……完全没想好。":
             jump choice3
 
-
 label choice1:
 
     show qy posl3
@@ -308,8 +396,6 @@ label choice1:
     hide qy
 
     jump cont13
-
-
 label choice2:
 
     show qy emml2
@@ -360,9 +446,8 @@ label choice2:
     qy "听起来不错呢。既然钱和时间都有了，肚子现在应该也填饱。我们就出发去下一个地方吧！"
     p "诶, 要去哪里啊？"
     hide qy
-    scene black with fade
-    jump outside_shop
 
+    jump cont13
 label choice3:
 
     show qy posl3
@@ -370,17 +455,21 @@ label choice3:
     show qy posl2
     qy "今天就去做点“复古又时髦”的事情吧！"
     p "诶, 要做什么啊？"
+    hide qy
 
     jump cont13
+
 
 label cont13:
 
     "千叶和我是初中同班同学，她家在临春经营着“考拉OK”的音乐餐厅。"
-    "说起来，这家餐厅好像从我记事起就已经存在了。\n而去过的人，大概都会对它印象深刻。\n毕竟从各个方面来说，它都算得上“极具特色”。"#(考拉逐渐侵略整个画面）
+    "说起来，这家餐厅好像从我记事起就已经存在了。"
+    "而去过的人，大概都会对它印象深刻。"
+    "毕竟从各个方面来说，它都算得上“极具特色”。"
     "......不过我和千叶现在好像不在去往餐厅的方向。真不知道千叶要把我们带到哪里去......"
 
     scene black with fade
-label outside_shop:
+
     show qy wowl1
     qy "啊，已经能看到招牌了，前面就是了！"
     hide qy
@@ -405,34 +494,53 @@ label outside_shop:
     scene shop
 
     "进店，熟悉又陌生的感觉扑面而来。依旧是琳琅满目的cd、唱片和器材配件。"
-    "角落里堆放的不是一捆一捆的音乐杂志，就是猜不出从哪儿来,也猜不出怎么用的乐器。"
+    "角落里堆放的不是一捆一捆的音乐杂志，就是什么猜不出从哪儿来也猜不出怎么用的乐器。"
 
     p "货品......怎么感觉比以前多了好几倍?!"
+    show qy posl1
     qy "没错，更像“洞穴”了。"
+    hide black
+    "尽管店内的过道因为大小不一的货品很维持笔直流畅的线条，{p}
+    但目之所及的物品比起盖着一层毛绒绒的灰尘，{p}
+    反而干净的出奇，是有些表面还带着点反光的那种。"
     p "但意外打理的......很干净。"
+    show qy wowl1
     qy "这里的店员应该工作得很辛苦吧，毕竟要维护这么多商品。"
     
+    scene zubi_in
+    show qy wowl1
 
     qy "诶，你看！这里竟然有这个，感觉上次好像看舅舅摆弄过类似的东西。"
-
-    "说着，千叶拿起那个摆在货架旁的细长圆筒，左右倾斜了一下。{p}里面发出“哗啦哗啦”豆子滚过般的声音。"
+    hide qy
+    "说着，千叶拿起那个摆在货架旁的细长圆筒，左右倾斜了一下。"
+    "里面发出“哗啦哗啦”豆子滚过般的声音。"
 
     menu:
         "竟然会发出这种声音啊。":
+            show qy posl3
             qy "很有意思吧。"
+            show qy posl1
             qy "看外观绝对猜不到呢。"
 
         "原来是这么用的啊。":
+            show qy norl2
             qy "嗯，上次舅舅怎么说得来着？"
+            show qy wowl1
             qy "好像是“......当地人用来祈雨的乐器”。"
+            show qy emml2
             qy "不过家里那个现在应该已经在仓库吃灰了。"
 
+    show qy wowl1
     p "啊切！"
+    show qy emml2
     qy "没事吧，难道说搬家太累，有点感冒了？"
     p "应该不是，但是周围好像有什么奇异的味道。"
+    show qy wowl1
     qy "可能是店里焚的香吧，昨天刚下过雨。"
     p "我怎么不记得店里以前有这种“特色”。"
+    show qy emml2
     qy "可能是老板的新爱好吧。不过我也好一阵子没见到她了。"
+    hide qy
 
     "接着，我注意到一位很酷的小姐杵在收银台后。{p}台面上散落着一些泡泡糖纸。"
 
@@ -444,45 +552,62 @@ label outside_shop:
 
     "千叶走上前去，用手指叩了叩玻璃台面。"
     "哒哒——"
+    show qy posl2 at right
     qy "马奇，你在看什么呢？"
     "“啪”的一声，那位小姐正吹着的泡泡瞬间瘪了，{w=0.5}视线随即从漫画移向了我们，露出了狡黠的笑容。"
-
+    show mq wowl1 at left
     mq_unknown "诶，千叶！{w=0.3}我说怎么声音有些耳熟，原来是你啊！"
-
+    show mq posl2
     mq_unknown "好久不见，我正打算餐厅出新菜品的时候去找你玩呢！"
-
+    show mq thinkl1
     qy_unknown "嗯？不过，乐队的聚餐也临近了....."
+    show mq posl4h
     qy_unknown "到时候很多人，很多很多菜，嘻嘻嘻嘻......"
-
+    
+    show qy emml2
     qy "欢迎你随时光临。"
-
+    hide qy
+    hide mq
+    
+    show mq wowl1
     qy_unknown "哦，你旁边怎么还多了一个新朋友？这位是......"
 
     menu:
         "你好，我叫[pname]，今天刚搬回临春。":
             jump intro1
+            hide mq
 
         "你好，我叫[pname]，是千叶以前的同学。":
             jump intro2
+            hide black
 
 
 label intro1:
-
+    show mq posl1 at left
     mq_unknown "诶？这么巧。{w=0.3}今天折腾回来辛苦了吧？{w=0.5}我叫马奇，今后我们也许会经常见面了。"
-
+    
     p "好在有千叶的帮忙，最辛苦的部分很快就搞定了。"
+    show mq posl4
     mq "——是啊，有千叶这样一位朋友真好啊。"
-
+    show qy emml2 at right
     qy "马奇，你都夸得我不好意思了。"
     p "所以......"
     menu:
         "马奇是这里的店员吗？":
+            hide qy
+            hide mq
+            show mq posl4h
             mq "你猜？"
+            show mq posl3
             mq "哈哈哈，不卖关子了。其实我也是来逛店的啦。"
             p "原来是这样啊。"
 
         "马奇是这里的老板吗？":
+            hide qy
+            hide mq
+            show mq posl4h
             mq "你猜？"
+            show mq posl3
             mq "哈哈哈，不卖关子了。其实我也是来逛店的啦。"
             p "原来是这样啊。"
 
@@ -490,87 +615,139 @@ label intro1:
 
 
 label intro2:
-
+    show mq posl1 at left
     mq "真羡慕啊！{w=0.3}像你们这种从小就认识的友谊。我叫马奇，算是这里的......常客吧？{p}当然也是千叶家餐厅的忠实粉丝。"
     mq "不过千叶的朋友就是我的朋友，今天我们就算认识了。"
-
     p "嗯，马奇......可真是"
 
     menu:
         "很有热情、活力呢。":
+            show qy emml2 at right
             qy "她是个“自来熟”。"
 
         "有点“自来熟”呢。":
+            show qy emml2 at right
             qy "她一贯如此。"
 
+    show mq naul1
     mq "嘿嘿，其实是“人来疯”啦。"
+    hide qy
+    hide mq
 
     jump after_intro
 
 
 label after_intro:
 
+    show mq wowl1
     mq "对了，刚才我光顾着自报家门了。你们今天来店里，是想找点什么吗？"
     p "嗯……好像确实没想过。"
 
     menu:
         "马奇有什么推荐的吗？":
+            show mq posl4b
             mq "哼哼，这你可就问对人啦！平时我可是在这里淘到过不少便宜好货。"
+            show qy emml2 at right
+            show mq posl4h
             qy "马奇似乎在这方面“嗅觉”意外灵敏呢。"
-            mq "是“听”！人家是靠听的啦，再说有什么其它技巧的话......那就是“心”吧。没错！一颗“寻宝”的心。"
-
+            hide qy
+            show mq posl2b
+            mq "是“听”！人家是靠听的啦。"
+            show mq sadl0b
+            mq "再说有什么其它技巧的话......那就是“心”吧。没错！一颗“寻宝”的心。"
+            show mq posl1
             mq "毕竟我平时好像也就靠这两样，不管是打鼓还是干别的什么。"
+            hide black
             "说着马奇低头看向收银台，用两根食指随意地在玻璃台边轻轻敲出了一小段节拍。"
+            show qy posl1 at right
             qy "哈哈，怎么感觉话题“嗖”的一下就跳到了打鼓呢。"
+            hide qy
+            show mq wowl1w
             mq "诶呀，一不小心就把话题扯远了。"
             p "所以......马奇小姐是因为打鼓，所以才会这样思考吗？"
+            show mq thinkl1
             mq "嗯......这我倒没怎么想过呢？"
+            show mq sadl0b
             mq "或许是这样吧。毕竟我也算是个不入流的职业鼓手。"
 
         "马奇对这里很熟悉吗？":
+            show mq thinkl1
             mq "嘛，算是吧。"
+            show mq posl2w
             mq "毕竟我平时是打鼓的，经常会来这里掏点“经典片段”、“沧海遗珠”什么的。拿回去学习学习。"
 
             p "原来马奇小姐是鼓手吗？"
+            show mq posl4h
             mq "嗯，姑且算是不入流的职业鼓手吧。"
 
     menu:
         "听起来是很酷的职业":
-            mq "不过，不是什么很稳定的工作。好处是可以经常去现场看演出。自己演，也听别人演。总之，在live house表演，最棒了！"
+            show mq wowl1w
+            mq "不过，不是什么很稳定的工作。"
+            show mq posl3
+            mq "好处是可以经常去现场看演出。自己演，也听别人演。总之，在live house表演，最棒了！"
+            hide mq
+            show qy posl1
             qy "对马奇来说，打鼓好像不只是一份工作呢。"
 
         "听起来，是一份有点辛苦又掺杂着不稳定的工作呢":
-            mq "哈哈，的确如此，不过在舞台上表演开始的那一刻——一切就都感觉不一样了。live表演最有意思了!"
+            show mq posl4
+            mq "哈哈，的确如此。"
+            show mq posl1
+            mq "不过在舞台上表演开始的那一刻——一切就都感觉不一样了。live表演最有意思了!"
+            hide mq
+            show qy posl1
             qy "马奇在舞台上的样子可是和平时很不一样呢。"
 
     menu:
         "马奇在舞台上......是什么样子呢？":
+            hide qy
+            show mq posl4h
             mq "这个嘛，你看到就知道啦。现在暂时保密！"
+            show mq wowl1
             mq "哦，对啦！正好我手里还剩两张，你和千叶一人一张吧。"
             "马奇不知从哪里翻出两张彩色纸条“啪”的一下拍在了玻璃台面上。"
+            show mq pail1
             mq "诶呦，刚才为了装酷没控制好力度，失误、失误。"
+            show mq posl1h
             mq "不过留在台面上的才是重点。"
+            hide mq
             p "......这是？"
 
         "live表演、live house是什么？":
+            hide qy
+            show mq wowl1w
             mq "诶，你没有去过live house吗"
             p "确实对我来说是有些陌生的概念。平时听音乐基本上都是通过耳机。"
-
+            hide mq
             "马奇开始低头在口袋里摸索起来，顺势掏出两张彩色纸条，“啪”的一下拍在了玻璃台面上——"
+            show mq posl5
             mq "唔，那这个你一定要收下！！！千叶也有份。"
+            hide mq
             p "......这是？"
 
+    show qy posl3 at right
     qy "哈哈，是马奇他们下次表演的门票，那我就不客气的收下了！"
+    show mq emol1 at left
     mq "呜呜，千叶，谢谢你的支持。"
+    show mq posl2w
     mq "呐，把这个首尾相粘一下，变成手坏，就可以带着它自由进出live house了。不过只可以在指定场次使用哦，比如说我所在的乐队登台表演的那一晚。"
 
     menu:
         "乐队？马奇的乐队吗？":
+            hide mq
+            hide qy
+            show mq posl4h
             mq "既然那么好奇，不如直接来现场看看呗？"
             p "好吧，看来只有去到现场才能知道了。"
+            hide mq
 
         "我也要和千叶一起去！":
+            hide mq
+            hide qy
+            show mq posl4
             mq "一言为定哦！到时候在台下看不到可爱的你们我会伤心的。"
+            hide mq
 
     "？？？：刚才是什么动静？！我在库房都听到了，我以为你只是来安静的看会儿漫画的，马小姐——"
     "？？？：稍等一下，我马上就来——"
