@@ -16,6 +16,12 @@ define jc_unknown = Character( "？？？", color="#90b6bd")
 define ms_unknown = Character( "？？？", color="#3354c1")
 define msu_unknown = Character( "？？？", color="#e82b73")
 define mq_unknown = Character( "？？？", color="#e3b008")
+
+define fana = Character("观众A", color="#a2c5cf")
+define fanb = Character("观众B", color="#a2adcf")
+define fanc = Character("观众C", color="#cfa2cd")
+define fand = Character("观众D", color="#cfcda2")
+define truefan = Character("真爱粉", color="#4db340")
 # =====character image定义 =====
 #千叶
 image qy_body_koalcoat = "images/qianye/qianye_body_koalacoat.png"
@@ -1261,34 +1267,73 @@ label maosha_intro:
 
     "这时，有人从后面拍了拍简诚的肩膀，"
 
-    "？？？：那两人迟到了，我们先去调试吧。"
+    msh_unknown "那两人迟到了，我们先去调试吧。"
 
     "语气平静得几乎没有起伏。"
 
-    
     if visited_park1:
         "——是昨天公园里那个人。"
-        #“原来他是人类啊”
+        #“原来他不是吸血鬼、外星人什么的。”
     
-    "他看向了我和千叶。"
-
-    ms "你好，千叶。"
-
+    msh_unknown  "你好，千叶。"
+    "对方说完就要转身离去。"
     qy "好久不见。"
 
-    jc "等等，毛莎。"
+    jc "毛莎，稍等一下。"
 
     jc "这是[pname]，今天和千叶一起来的。"
 
-    p "你好。"
+    p "你好，我今天也是来看你们演出的。"
 
-    ms "你好。"
+    msh_unknown "你好。"
 
-    jc "他叫毛莎，是我们乐队的贝斯手。"
+    jc "他是毛莎，我们乐队的贝斯手。"
 
-    "毛莎微微点了点头，便没再开口。"
+    "毛莎微微点了点头。"
 
-    "......有种不能随便搭话的气场。"
+    msh_unknown "我们得走了。"
+    jc "[pname]和千叶，那就一会儿演出见了。"
+    p "嗯。"
+    qy "回见。"
+
+label before_show:
+    "快开场了，我和千叶也移步到了演出区域。"
+    qy "太好了，前排还空着！"
+    qy "走，我们去找个离表演最近的位置。"
+    qy "千叶兴奋地指了指舞台下方。"
+    "那里被一排金属护栏隔了出来。"
+    p "这些护栏......看起来真像丧尸片里用来阻隔僵尸的装置。"
+
+    qy "哈哈哈，说不定一会儿真的会变成那样呢。"
+
+    p "总觉得一会儿耳朵会被震麻......两边的音箱离得也太近了。"
+    qy "没错，有时候可能还得用上耳塞。"
+    p "耳塞？......没有准备。"
+    p "不过......"
+    "在兜里摸索了一会儿......"
+    "！{p}找到了！"
+    p "这个是不是也行？"
+    "掏出随身听——上面还缠着那副常用的耳机。"
+    qy "嗯，有这个应该就够了！"
+
+    fana "Kidsplay?听说这支乐队的前主唱好像和他们是不欢而散啊。"
+    fanb "啊？我听说不是因为那个吉他手吗？"
+    fana "真的假的......"
+
+    truefan "你们这些家伙怎么会相信、传播这种不靠谱的小道消息？！就不能把注意力放在音乐上吗？"
+
+    "灯光暗了下来—— "
+
+    fana、fanb"......"
+    truefan "来了来了！"
+    #（口哨声）（电吉他扫音/总之就是失真但真实的诡异电音）
+    "——kidsplay登场了。"
+
+
+
+
+
+
     return
 
 
