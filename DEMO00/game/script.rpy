@@ -1,6 +1,254 @@
 ﻿# 游戏的脚本可置于此文件中。
 
 
+define qy_unknown = Character( "？？？", color="#fd8426")
+define yz_unknown = Character( "？？？", color="#f42727") 
+define jc_unknown = Character( "？？？", color="#90b6bd")
+define ms_unknown = Character( "？？？", color="#3354c1")
+define msu_unknown = Character( "？？？", color="#e82b73")
+define mq_unknown = Character( "？？？", color="#e3b008")
+
+define fana = Character("观众A", color="#a2c5cf")
+define fanb = Character("观众B", color="#a2adcf")
+define fanab = Character("观众A、观众B", color="#a2b6cf")
+define fanc = Character("观众C", color="#cfa2cd")
+define fand = Character("观众D", color="#cfcda2")
+define truefan = Character("真爱粉", color="#4db340")
+# =====character image定义 =====
+#千叶
+image qy_body_koalcoat = "images/qianye/qianye_body_koalacoat.png"
+image qy_body_koalcoatred = "images/qianye/qianye_body_koalacoatred.png"
+
+image qy_face_normal = "images/qianye/qianye_face_default.png"
+image qy_face_displeasure = "images/qianye/cat.png"
+image qy_face_happy = "images/qianye/qianye_face_happy.png"
+image qy_face_confident = "images/qianye/qianye_face_confident.png"
+image qy_face_sad = "images/qianye/qianye_face_sad.png"
+image qy_face_speaking = "images/qianye/qianye_face_speaking.png"
+image qy_face_unhappy = "images/qianye/qianye_face_unhappy.png"
+image qy_face_quitenice = "images/qianye/qianye_face_quitenice.png"
+#529新增
+image qy_face_norl1 = "images/qianye/qy_face_nor11.png"
+image qy_face_norl2 = "images/qianye/qy_face_nor12.png"
+image qy_face_posl1 = "images/qianye/qy_face_pos11.png"
+image qy_face_posl2 = "images/qianye/qy_face_pos12.png"
+image qy_face_posl3 = "images/qianye/qy_face_pos13.png"
+image qy_face_posl4 = "images/qianye/qy_face_pos14.png"
+image qy_face_wowl1 = "images/qianye/qy_face_wow11.png"
+image qy_face_emml1 = "images/qianye/qy_face_emm12.png"
+image qy_face_emml2 = "images/qianye/qy_face_emm12.png"
+#盐之
+image yz_body_redcoat = "images/yanzhi/yan_body_redcoat.png"
+image yz_face_normal = "images/yanzhi/yan_face_normal.png"
+image yz_face_smile = "images/yanzhi/yan_face_smile.png"
+image yz_face_speak = "images/yanzhi/yan_face_speak.png"
+image yz_face_awkward = "images/yanzhi/yan_face_awkward.png"
+image yz_anime_blink = "images/yanzhi/yan_anime_blink.png"
+#马奇
+image mq_body_greencoat= "images/mq/mq_body_greencoat.png"
+image mq_face_wowl1 = "images/mq/face/mq_face_wowl1.png"
+image mq_face_wowl2 = "images/mq/face/mq_face_wowl2.png"
+image mq_face_thinkl1 = "images/mq/face/mq_face_thinkl1.png"
+image mq_face_thinkl2 = "images/mq/face/mq_face_thinkl2.png"
+image mq_face_emol1 = "images/mq/face/mq_face_emol1.png"
+image mq_face_huhl1 = "images/mq/face/mq_face_huhl1.png"
+image mq_face_naul1 = "images/mq/face/mq_face_naul1.png"
+image mq_face_pail1 = "images/mq/face/mq_face_pail1.png"
+
+image mq_face_posl1 = "images/mq/face/mq_face_posl1.png"
+image mq_face_posl1 = "images/mq/face/mq_face_posl1.png"
+image mq_face_posl2 = "images/mq/face/mq_face_posl2.png"
+image mq_face_posl3 = "images/mq/face/mq_face_posl3.png"
+image mq_face_posl4 = "images/mq/face/mq_face_posl4.png"
+image mq_face_posl5 = "images/mq/face/mq_face_posl5.png"
+image mq_face_posl1h = "images/mq/face/mq_face_posl1h.png"
+
+image mq_face_posl4h = "images/mq/face/mq_face_posl4h.png"
+image mq_face_wowl1h = "images/mq/face/mq_face_wowl1h.png"
+image mq_face_wow21h = "images/mq/face/mq_face_wowl2h.png"
+image mq_face_posl6h = "images/mq/face/mq_face_posl6h.png"
+image mq_face_norl1h = "images/mq/face/mq_face_norl1h.png"
+image mq_face_norl1hw = "images/mq/face/mq_face_norl1hw.png"
+image mq_face_posl4b = "images/mq/face/mq_face_posl4b.png"
+image mq_face_sadl0b = "images/mq/face/mq_face_sadl0b.png"
+image mq_face_posl2b = "images/mq/face/mq_face_posl2b.png"
+image mq_face_posl2w = "images/mq/face/mq_face_posl2w.png"
+image mq_face_wowl1w= "images/mq/face/mq_face_wowl1w.png"
+
+
+
+# ===== layeredimage定义 =====
+layeredimage qy:
+    #zoom 0.25
+
+    group body:
+        attribute koalcoat default
+        attribute koalcoatred
+     
+    group face:
+
+        attribute normal default:
+            "qy_face_normal"
+
+        attribute displeasure:
+            "qy_face_displeasure"
+
+        attribute happy:
+            "qy_face_happy"
+
+        attribute confident:
+            "qy_face_confident"
+        attribute sad:
+            "qy_face_sad"   
+        attribute speaking:
+            "qy_face_speaking"
+        attribute unhappy:
+            "qy_face_unhappy"
+        attribute quitenice:
+            "qy_face_quitenice"
+        #529新增
+        attribute norl1:
+            "qy_face_norl1"
+        attribute norl2:
+            "qy_face_norl2"
+
+        attribute posl1:
+            "qy_face_posl1"
+        attribute posl2:
+            "qy_face_posl2"
+        attribute posl3:
+            "qy_face_posl3"
+        attribute posl4:
+            "qy_face_posl4"
+            
+        attribute wowl1:
+            "qy_face_wowl1"
+
+        attribute emml1:
+            "qy_face_emml1"
+        attribute emml2:
+            "qy_face_emml2"         
+layeredimage yz:
+    #zoom 0.25
+
+    group body:
+        attribute redcoat default
+        #attribute koalcoatred
+     
+    group face:
+
+        attribute normal default:
+            "yz_face_normal"
+
+        attribute awkward:
+            "yz_face_awkward"
+
+        attribute smile:
+            "yz_face_smile"
+
+        attribute speak:
+            "yz_face_speak"
+layeredimage mq:
+
+    group body:
+        attribute greencoat default
+     
+    group face:
+
+        attribute posl1 default:
+            "mq_face_posl1"
+        attribute wowl1:
+            "mq_face_wowl1"
+        attribute wowl2:
+            "mq_face_wowl2"
+        attribute thinkl1:
+            "mq_face_thinkl1"
+        attribute thinkl2:
+            "mq_face_thinkl2"
+        attribute emol1:
+            "mq_face_emol1"
+        attribute huhl1:
+            "mq_face_huhl1"
+        attribute naul1:
+            "mq_face_naul1"
+        attribute pail1:
+            "mq_face_pail1"
+        attribute posl2:
+            "mq_face_posl2"
+        attribute posl3:
+            "mq_face_posl3"
+        attribute posl4:
+            "mq_face_posl4"
+        attribute posl5:
+            "mq_face_posl5"
+        attribute posl1h:
+            "mq_face_posl1h"
+        attribute posl4h:
+            "mq_face_posl4h"
+        attribute wowl1h:
+            "mq_face_wowl1h"
+        attribute wowl2h:
+            "mq_face_wow21h"
+        attribute posl6h:
+            "mq_face_posl6h"
+        attribute norl1h:
+            "mq_face_norl1h"
+        attribute norl1hw:
+            "mq_face_norl1hw"
+        attribute posl4b:
+            "mq_face_posl4b"
+        attribute sadl0b:
+            "mq_face_sadl0b"
+        attribute posl2b:
+            "mq_face_posl2b"
+        attribute posl2w:
+            "mq_face_posl2w"
+        attribute wowl1w:
+            "mq_face_wowl1w"
+
+
+#===== bgimage定义 =====
+image park = "images/park.jpg"
+image office ="images/openning/temp_office.png"
+image subway ="images/openning/temp_subway.png"
+image toilet ="images/openning/temp_toilet.png"
+image layoff = "images/openning/temp_layoff.png"
+image map = "images/openning/temp_map.png"
+image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 1080)
+
+image ts = "images/bg/bg_trainstation2.png"
+image zubi_in = "images/bg/bg_zubi_in.png"
+image zubi_out = "images/bg/bg_zubi_out.png"
+image zubi_mid = "images/bg/bg_zubi_mid.png"
+image street_home1 = "images/bg/bg_street_home1.png"
+image street_home2 = "images/bg/bg_street_home2.png"
+image phome_livingroom = 'images/bg/bg_phome_livingroom.png'
+image coala_out = 'images/bg/bg_coala_out.png'
+image coala_in = 'images/bg/bg_coala_in.png'
+
+#blinking animation for qianye's neutral face
+image qy_face_normal_anim:
+
+    "qy_face_normal"
+    pause renpy.random.uniform(3.0, 6.0)  # 更自然一点
+
+    "qy_face_closed"
+    pause 0.1
+
+    repeat
+
+#立绘翻转参数
+transform flip:
+    xzoom -1
+
+#人物登场/退场参数
+transform char_enter:
+    alpha 0.0
+    linear 0.3 alpha 1.0
+
+transform char_exit:
+    on hide:
+        linear 0.3 alpha 0.0
 
 #开场演出
 label splashscreen:
@@ -85,7 +333,7 @@ label start:
 
     call layoff from _call_layoff
     call train from _call_train
-    call b_board from _call_b_board
+    #call b_board from _call_b_board
     call zubizubi_intro from _call_zubizubi_intro
     
     
@@ -284,6 +532,7 @@ label outside_shop:
     qy "诶，你看！这里竟然有这个，感觉上次好像看舅舅摆弄过类似的东西。"
     hide qy
     "说着，千叶拿起那个摆在货架旁的细长圆筒，左右倾斜了一下。{p}里面发出“哗啦哗啦”豆子滚过般的声音。"
+    play sound "audio/soundeffect/rainstick1.wav"
 
     menu:
         "竟然会发出这种声音啊。":
@@ -729,17 +978,17 @@ label park_route:
 
         "把目光移开":
 
-            ms_unknown "要不......就把你定为下一个目标吧？"
+            msu_unknown "要不......就把你定为下一个目标吧？"
 
             p "”......！“"
 
-            ms_unknown "放心，不会一上来就把你灭口的。"
+            msu_unknown "放心，不会一上来就把你灭口的。"
 
             p "”......！！“"
 
             "然后是漫长的几声蝉鸣，树叶被风吹得沙沙作响。{p}还有她越来越近的脚步声。"
 
-            ms_unknown "这个耳机应该已经是很多年前的东西了吧。"
+            msu_unknown "这个耳机应该已经是很多年前的东西了吧。"
 
             "诶？——"
 
@@ -747,23 +996,23 @@ label park_route:
 
             p "......我不太了解呢。只知道是很久以前买的了。"
 
-            ms_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
+            msu_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
 
             "现在周围的光线已经逐渐暗了下来，她居然还能......看得这么清楚？"
 
-            msh_unknown "该回去了。"
+            ms_unknown "该回去了。"
 
-            ms_unknown "知道了，毛莎。本来我也要往家走了"
+            msu_unknown "知道了，毛莎。本来我也要往家走了"
 
-            ms_unknown "那就下次再见了。"
+            msu_unknown "那就下次再见了。"
 
             "少女冲我摆了摆手，转身和神秘男子向公园出口走去。"
 
-            ms_unknown "哦，对了。"
+            msu_unknown "哦，对了。"
 
             "突然, 她又退回几步，转头对我说。"
 
-            ms_unknown "刚才只是没忍住，{w=0.5}捉弄了一下你。"
+            msu_unknown "刚才只是没忍住，{w=0.5}捉弄了一下你。"
 
             "少女的脚步声远去了。"
 
@@ -789,7 +1038,7 @@ label park_route:
 
             "她眯了眯眼睛，向我靠近了几步。"
 
-            ms_unknown "这个耳机应该已经是很多年前的东西了吧。"
+            msu_unknown "这个耳机应该已经是很多年前的东西了吧。"
 
             "她抬了抬下巴，指向我手里的耳机。"
 
@@ -799,11 +1048,11 @@ label park_route:
 
             "现在周围的光线已经逐渐暗了下来。她居然还能......看得这么清楚？"
 
-            msh_unknown "该回去了。"
+            ms_unknown "该回去了。"
 
-            ms_unknown "知道了，毛莎。本来我也要往家走了"
+            msu_unknown "知道了，毛莎。本来我也要往家走了"
 
-            ms_unknown "？？？：那就下次再见了。"
+            msu_unknown "那就下次再见了。"
 
             "少女冲我摆了摆手，转身和神秘男子向公园出口走去。"
 
@@ -860,8 +1109,7 @@ label before_livehouse:
 
     # 去livehouse前
     #【新一天开始的音乐】
-    "今天就是去看演出的日子了。"
-    "昨天已经和千叶约好集合的时间地点。"
+    "今天就是去看演出的日子了。{p}昨天已经和千叶约好集合的时间地点。"
 
     "......不过，穿什么好呢？"
 
@@ -900,7 +1148,7 @@ label outside_livehouse:
     #【转场：街道、店面之类的；live house门口】
     qy "这边！"
     qy "你还蛮有精神的嘛，看来已经完全恢复了。"#（眯眼笑）
-    "......可能是感冒药、漫画书、游戏机、小说们的功劳吧."
+    "......可能是感冒药、漫画书、游戏机、小说们的功劳吧。"
     if outfit == "koala":
         qy "哦？竟然穿着考拉OK文化衫。"
         qy "真有点怀念呢。"
@@ -937,8 +1185,7 @@ label outside_livehouse:
 #【环境音为主】
 label enter_livehouse:
     "踏过一级一级狭窄的台阶，日常世界的感觉被一点一点稀释。"
-    "两侧墙壁上爬满了让人不得不停下脚步、思考几秒才能读懂的涂鸦和海报。{p}路过它们时，目光总会不自觉地被勾住。"
-    "灯光在冷暖之间不断切换，连感官都变得有些失真。"
+    "两侧墙壁上爬满了让人不得不停下脚步、思考几秒才能读懂的涂鸦和海报。{p}路过它们时，目光总会不自觉地被勾住。{p}灯光在冷暖之间不断切换，连感官都变得有些失真。"
     "终于，我们又开始走在平地上。"
 
     "而这间 live house 真正的内部，也终于向我们敞开——"
@@ -947,14 +1194,12 @@ label enter_livehouse:
     "啊，是小狗；"
     "还有游戏海报！"
     qy "真的有这个游戏吗？"
-    "诶，实验性电子乐？还是现场演奏的？！"
-    "等等，小吃摊和水吧怎么也在这里？"
-    "他们到底是怎么全都挤进来的——"  
+    "诶，实验性电子乐？还是现场演奏的？！{p}等等，小吃摊和水吧怎么也在这里？{p}他们到底是怎么全都挤进来的——"  
 
 
 label jiancheng_intro:
 
-    jc_unknown "哈喽，千叶。好久不见." #（眯眼笑
+    jc_unknown "哈喽，千叶。好久不见。" #（眯眼笑
 
     qy "好久不见。"
 
@@ -990,7 +1235,7 @@ label jiancheng_intro:
 
         "你和千叶很熟？":
 
-            jc "哈哈，算是吧？"
+            jc "哈哈，算是吧。"
             jc "大概是因为我们整个乐队都是她们家餐厅的忠实顾客。"
 
             jc "{cps=150}都是因为某些家伙每次演出完都吵着闹着要吃，吃不到就不消停。{/cps}{nw}"
@@ -1006,7 +1251,7 @@ label jiancheng_intro:
 
             p "Kidsplay......"
 
-            jc "嗯，我们乐队的名称是K-I-D-S-P-L-A-Y，{w=0.5}Kidsplay。"
+            jc "嗯，我们乐队的名称是{w=0.２}K-I{w=0.２}-D{w=0.２}-S{w=0.２}-P{w=0.２}-L{w=0.２}-A{w=0.２}-Y，{w=0.5}Kidsplay。"
 
             jc "你带的手环上也应该也有写。"
 
@@ -1021,9 +1266,9 @@ label maosha_intro:
 
     #"毛莎登场"
 
-    "这时，有人从后面拍了拍简诚的肩膀，"
+    "这时，有人从后面拍了拍简诚的肩膀。"
 
-    msh_unknown "那两人迟到了，我们先去调试吧。"
+    ms_unknown "那两人迟到了，我们先去调试吧。"
 
     "语气平静得几乎没有起伏。"
 
@@ -1031,23 +1276,22 @@ label maosha_intro:
         "——是昨天公园里那个人。"
         #“原来他不是吸血鬼、外星人什么的。”
     
-    msh_unknown  "你好，千叶。"
-    "对方说完就要转身离去。"
+    ms_unknown  "你好，千叶。"
     qy "好久不见。"
-
+    "对方说完就要转身离去。"
     jc "毛莎，稍等一下。"
 
     jc "这是[pname]，今天和千叶一起来的。"
 
-    p "你好，我今天也是来看你们演出的。"
+    p "你好。"
 
-    msh_unknown "你好。"
+    ms_unknown "你好。"
 
     jc "他是毛莎，我们乐队的贝斯手。"
 
-    "毛莎微微点了点头。"
+    "毛莎微微点了点头。{w=0.3}视线从我的手环上扫过，什么也没说。"
 
-    msh_unknown "我们得走了。"
+    ms_unknown "我们得走了。"
     jc "[pname]和千叶，那就一会儿演出见了。"
     p "嗯。"
     qy "回见。"
@@ -1080,10 +1324,10 @@ label before_show:
 
     "灯光暗了下来—— "
 
-    fana、fanb"......"
+    fanab"......"
     truefan "来了来了！"
     #（口哨声）（电吉他扫音/总之就是失真但真实的诡异电音）
-    "——kidsplay登场了。"
+    "——Kidsplay登场了。"
 
 
 
