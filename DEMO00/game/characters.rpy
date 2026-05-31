@@ -103,6 +103,7 @@ transform char_in:
 
 transform char_out:
     on hide:
+        alpha 1.0
         linear 0.3 alpha 0.0
 #人物站位
 define left = Position(xalign=0.1)
@@ -281,10 +282,20 @@ image zubi_out = "images/bg/bg_zubi_out.png"
 image zubi_mid = "images/bg/bg_zubi_mid.png"
 image zubi_counter = "images/bg/bg_zubi_counter.png"
 image street_home1 = "images/bg/bg_street_home1.png"
+image street_home1_x = "images/bg/bg_street_home1_x.png"
+image street_home1_n = "images/bg/bg_street_home1_n.png"
 image street_home2 = "images/bg/bg_street_home2.png"
+image street_home2_x = "images/bg/bg_street_home2_x.png"
+image street_home2_n = "images/bg/bg_street_home2_n.png"
 image phome_livingroom = 'images/bg/bg_phome_livingroom.png'
+image phome_livingroom_n = 'images/bg/bg_phome_livingroom_n.png'
+image phome_bedroom = 'images/bg/bg_phome_bedroom.png'
+image phome_bedroom_n = 'images/bg/bg_phome_bedroom_n.png'
 image coala_out = 'images/bg/bg_coala_out.png'
+image coala_out_x = 'images/bg/bg_coala_out_x.png'
 image coala_in = 'images/bg/bg_coala_in.png'
+image park_n = 'images/bg/bg_park_n.png'
+image park_mid_n = 'images/bg/bg_park_mid_n.png'
 
 #blinking animation for qianye's neutral face
 image qy_face_normal_anim:
