@@ -217,9 +217,14 @@ image toilet ="images/openning/temp_toilet.png"
 image layoff = "images/openning/temp_layoff.png"
 image map = "images/openning/temp_map.png"
 image trainstation = im.Scale("images/openning/temp_trainstation.jpg", 1920, 1080)
+
 image ts = "images/bg/bg_trainstation2.png"
 image zubi_in = "images/bg/bg_zubi_in.png"
-
+image street_home1 = "images/bg/bg_street_home1.png"
+image street_home2 = "images/bg/bg_street_home2.png"
+image phome_livingroom = 'images/bg/bg_phome_livingroom.png'
+image coala_out = 'images/bg/bg_coala_out.png'
+image coala_in = 'images/bg/bg_coala_in.png'
 
 #blinking animation for qianye's neutral face
 image qy_face_normal_anim:
@@ -374,7 +379,11 @@ label zubizubi_intro:
 
     hide qy posl4
 
-    scene trainstation
+    scene street_home2 with fade
+    pause 0.3
+    scene street_home1 with fade
+    pause 0.3
+    scene phome_livingroom with fade
 
     show qy posl4
     qy "啊！终于摆脱了这些沉甸甸的家伙。"
@@ -410,12 +419,14 @@ label choice2:
     show qy emml2
     qy "看来即使今天休息，我也得在餐厅多待一会儿了。"
     hide qy
-
-    scene black with fade
+    
+    scene street_home2 with fade
+    pause 0.3
+    scene coala_out with fade
 
     "千叶家的考拉OK餐厅......好像自从初中毕业后，我就没再来过了。"
 
-    scene black with fade
+    scene coala_in with fade
 
     "【进店的开门音效专场，开始播放夏日餐厅bgm】"
     
@@ -471,6 +482,7 @@ label choice3:
 
 label cont13:
 
+    scene coala_out with fade
     "千叶和我是初中同班同学，她家在临春经营着“考拉OK”的音乐餐厅。"
     "说起来，这家餐厅好像从我记事起就已经存在了。"
     "而去过的人，大概都会对它印象深刻。"
