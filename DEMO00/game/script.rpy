@@ -658,13 +658,13 @@ label after_intro:
             show mq posl1
             mq "毕竟我平时好像也就靠这两样，不管是打鼓还是干别的什么。"
             hide black
-            "说着马奇低头看向收银台，用两根食指随意地在玻璃台边轻轻敲出了一小段节拍。"
+            "说着马奇低头看向收银台，用两根食指随意地在玻璃台边轻轻敲出了一小段节拍。{p}看不出她此时是在思考还是放空。"
             show qy posl1 at right
             qy "哈哈，怎么感觉话题“嗖”的一下就跳到了打鼓呢。"
             hide qy
             show mq wowl1w
             mq "诶呀，一不小心就把话题扯远了。"
-            p "所以......马奇小姐是因为打鼓，所以才会这样思考吗？"
+            p "所以......马奇小姐是因为打鼓，才会这样思考吗？"
             show mq thinkl1
             mq "嗯......这我倒没怎么想过呢？"
             show mq sadl0b
@@ -674,7 +674,7 @@ label after_intro:
             show mq thinkl1
             mq "嘛，算是吧。"
             show mq posl2w
-            mq "毕竟我平时是打鼓的，经常会来这里掏点“经典片段”、“沧海遗珠”什么的。拿回去学习学习。"
+            mq "毕竟我平时是打鼓的，经常会来这里淘点稀奇古怪的玩意儿。拿回去学习学习。"
 
             p "原来马奇小姐是鼓手吗？"
             show mq posl4h
@@ -685,7 +685,7 @@ label after_intro:
             show mq wowl1w
             mq "不过，不是什么很稳定的工作。"
             show mq posl3
-            mq "好处是可以经常去现场看演出。自己演，也听别人演。总之，在live house表演，最棒了！"
+            mq "好处是可以经常去现场看演出。自己演，也听别人演。{w=0.3}总之，在live house表演，{w=0.5}最棒了！"
             hide mq
             show qy posl1
             qy "对马奇来说，打鼓好像不只是一份工作呢。"
@@ -694,7 +694,7 @@ label after_intro:
             show mq posl4
             mq "哈哈，的确如此。"
             show mq posl1
-            mq "不过在舞台上表演开始的那一刻——一切就都感觉不一样了。live表演最有意思了!"
+            mq "不过在舞台上表演开始的那一刻——{w=0.3}一切就都感觉不一样了。{w=0.5}live表演最有意思了!"
             hide mq
             show qy posl1
             qy "马奇在舞台上的样子可是和平时很不一样呢。"
