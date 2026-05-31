@@ -16,6 +16,12 @@ define jc_unknown = Character( "？？？", color="#90b6bd")
 define ms_unknown = Character( "？？？", color="#3354c1")
 define msu_unknown = Character( "？？？", color="#e82b73")
 define mq_unknown = Character( "？？？", color="#e3b008")
+
+define fana = Character("观众A", color="#a2c5cf")
+define fanb = Character("观众B", color="#a2c5cf")
+define fanc = Character("观众C", color="#a2c5cf")
+define fand = Character("观众D", color="#a2c5cf")
+
 # =====character image定义 =====
 #千叶
 image qy_body_koalcoat = "images/qianye/qianye_body_koalacoat.png"
@@ -1264,6 +1270,8 @@ label maosha_intro:
     jc "[pname]和千叶，那就一会儿演出见了。"
     p "嗯。"
     qy "回见。"
+
+
 
 
 
