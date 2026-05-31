@@ -317,7 +317,7 @@ label splashscreen:
 
 #剧情分支控制变量
 default outfit = ""
-default visit_park1 = False
+default visited_park1 = False
 # 全局台词属性溶解效果
 #define config.say_attribute_transition = Dissolve(0.5)
 
@@ -1241,11 +1241,10 @@ label maosha_intro:
     "语气平静得几乎没有起伏。"
 
     
-    # if visit_park1==true:
+    if visited_park1:
         "——是昨天公园里那个人。"
+        #“原来他是人类啊”
     
-    #else
-   
     "他看向了我和千叶。"
 
     ms "你好，千叶。"
