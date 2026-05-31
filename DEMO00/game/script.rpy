@@ -796,7 +796,7 @@ label after_intro:
 
     menu:
         "看去":
-            show yz wowl1
+            show yz wowl1 at char_enter
             yz "嗯？你怎么会出现在这里。"
             yz "马奇和千叶看起来没问题啊，都和平时一个样，原来——"
             yz "你真的回来啦。"
