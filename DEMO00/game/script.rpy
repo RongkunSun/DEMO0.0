@@ -342,7 +342,7 @@ label start:
 
     call layoff from _call_layoff
     call train from _call_train
-    call b_board from _call_b_board
+    #call b_board from _call_b_board
     call zubizubi_intro from _call_zubizubi_intro
     
     
