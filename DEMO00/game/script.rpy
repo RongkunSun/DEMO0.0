@@ -49,6 +49,9 @@ image yz_anime_blink = "images/yanzhi/yan_anime_blink.png"
 #531新增
 image yz_face_wowl1 = "images/yz/face/yz_face_wowl1.png"
 image yz_face_thinkl1 = "images/yz/face/yz_face_think1.png"
+image yz_face_posl1 = "images/yz/face/yz_face_posl1.png"
+image yz_face_posl2 = "images/yz/face/yz_face_posl2.png"
+image yz_face_posl2h = "images/yz/face/yz_face_posl2h.png"
 #马奇
 image mq_body_greencoat= "images/mq/mq_body_greencoat.png"
 image mq_face_wowl1 = "images/mq/face/mq_face_wowl1.png"
@@ -158,6 +161,9 @@ layeredimage yz:
             "yz_face_wowl1"
         attribute thinkl1:
             "yz_face_thinkl1"
+        attribute posl1:
+            "yz_face_posl1"
+
 layeredimage mq:
 
     group body:
@@ -801,13 +807,16 @@ label after_intro:
         "看去":
             show yz wowl1 #at char_enter
             yz "嗯？你怎么会出现在这里。"
+            show yz thinkl1
             yz "马奇和千叶看起来没问题啊，都和平时一个样，原来——"
+            show yz posl1
             yz "你真的回来啦。"
 
         "眼神回避":
             yz "哦，是千叶啊，还有——"
             yz "一个完全没想到会出现在这里的家伙。"
             yz "我以为你不会回来了呢？"
+            show yz posl1
         
         
     menu:
@@ -818,12 +827,20 @@ label after_intro:
 
 
         "确实好久没见了呢，盐之。":
+            show yz thinkl1
             yz "嗯......嘛......也没有很久啦。也就六、七年？"
+            hide yz
+            show mq huhl1
             mq "啊？六七年难道不是很久了吗？已经够我......呃，让我想一想——"
+            hide mq
+            show qy emml2
             qy "够考拉OK换不知道多少轮季节菜单了。"
+            hide qy
     menu:
         "你头发变长了。":
+            show yz wowl1
             yz "嗯，反正现在也不会有什么中学的老古板揪着这点不放了。"
+            show yz posl2
             yz "你也变了很多。"
 
         "长头发很适合你。":
