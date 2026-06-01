@@ -1,14 +1,6 @@
 ﻿# 游戏的脚本可置于此文件中。
 
 
-#人物登场/退场参数
-transform char_enter:
-    alpha 0.0
-    linear 0.3 alpha 1.0
-
-transform char_exit:
-    on hide:
-        linear 0.3 alpha 0.0
 
 #开场演出
 label splashscreen:
@@ -228,7 +220,7 @@ label choice2:
     qy "听起来不错呢。既然钱和时间都有了，肚子现在应该也填饱。我们就出发去下一个地方吧！"
     p "诶, 要去哪里啊？"
     hide qy
-    scene black with fade
+    scene coala_out with fade
     jump outside_shop
 label choice3:
 
@@ -432,11 +424,11 @@ label after_intro:
             mq "再说有什么其它技巧的话......那就是“心”吧。没错！一颗“寻宝”的心。"
             show mq posl1
             mq "毕竟我平时好像也就靠这两样，不管是打鼓还是干别的什么。"
-            hide black
+            hide mq at char_out
             "说着马奇低头看向收银台，用两根食指随意地在玻璃台边轻轻敲出了一小段节拍。{p}看不出她此时是在思考还是放空。"
             show qy posl1 at right
             qy "哈哈，怎么感觉话题“嗖”的一下就跳到了打鼓呢。"
-            hide qy
+            hide qy at char_out
             show mq wowl1w
             mq "诶呀，一不小心就把话题扯远了。"
             p "所以......马奇小姐是因为打鼓，才会这样思考吗？"
@@ -526,11 +518,13 @@ label after_intro:
             mq "一言为定哦！{w=0.3}到时候在台下看不到可爱的你们我会伤心的。"
             hide mq
     scene zubi_in with fade
+    with vpunch
     yz_unknown "刚才是什么动静？！我在库房都听到了，我以为你只是来安静地看会儿漫画的，马小姐——"
     scene zubi_counter with fade
     show mq wowl1
     mq "哦，对喽，今天我们乐队的另一个家伙碰巧也在。"
     scene zubi_in with fade
+    with vpunch
     yz_unknown "什么？来客人了你也不跟我讲一声？！还是我在这边伸着脖子才看到的......"
     "声音听着有些耳熟。"
     yz_unknown "稍等一下，我马上就来——"
@@ -651,6 +645,7 @@ label after_intro:
     yz "有问题就喊我！"
     hide yz at char_out
     p "嗯。"
+    hide yz at char_out
     hide qy at char_out
     scene zubi_mid with fade
     "盐之回到库房去了。{p}我和千叶又在店里停留了一小会儿。"
@@ -661,33 +656,39 @@ label after_intro:
 
 label after_date:
 
-    scene street_evening
-    with fade
-
     #【场景背景切换：街道、店面之类的】
 
-    "和千叶逛着逛着，就已经接近傍晚了。"
-
+    scene coala_out_x with fade
+    pause 0.4
+    scene street_home1_x with fade
+    pause 0.4
+    scene street_home2_x with fade
+    "和千叶逛着逛着，天已经快黑了。"
+    show qy posl1 at char_in,center
     qy "那就下周live见了。"
     p "不过，在那之前，我们应该还会见面吧。"
+    show qy posl2
     qy "说得也是。有空再约！"
     p "嗯。"
+    show qy posl4
     qy "不用担心打扰到我哦，{w=0.5}有事我会直说的。"
     
     "(千叶的头顶似乎长出了天使光环。)"
     
     p "呜呜......{p}天使......"
-    
+    show qy wowl1
     qy "？"
     
     p "没什么。"
-    
+    show qy posl1
     qy "那就拜拜喽，到时候手机联系。"
 
-    scene home
-    with fade
-
-    "【场景背景切换：家门口，玄关，房间】"
+    scene street_home1_x with fade
+    pause 0.3
+    scene phome_livingroom_n with fade
+    pause 0.3
+    scene phome_bedroom_n with fade
+    #场景背景切换：家门口，玄关，房间】
 
     p "走了一天，终于可以躺下了。"
 
@@ -704,20 +705,22 @@ label after_date:
 label sleep_route:
 
     "简单收拾了一下，就钻入了被窝。"
+    scene bedroom_n with fade
+    pause 1.0
     jump day_sick
-
-
-    
-
 
 label park_route:
     $ visited_park1 = True
-    scene park
+    scene street_home1_n with fade
+    pause 0.3
+    scene street_home2_n with fade
+    pause 0.3
+    scene park_mid_n with fade
     #【转场：街道、店面之类的；街道、路灯、飞虫、一点点泛白的天空，这时候看你们的了！】
     p "啊——{w=0.5}公园，{w=0.3}好久没来这里了。" #【可以放过去公园的样子】
     "现在这个时候，还能隐约听到一点蝉鸣。{w=0.3}露在外面的皮肤还能感受到丝丝凉风，{w=0.3}光是坐在长椅上就很放松了。"
     p "这种时候，如果还能带上耳机，听着自己喜欢的歌曲，{w=0.3}那就更爽了。"
-
+    scene park_n with fade
     "掏出耳机，选好音乐，正准备戴上时——"
 
     "“窸窸窣窣”——"
@@ -726,7 +729,8 @@ label park_route:
     "——大概是什么小动物弄出的声响吧。"
     "“唰唰唰”"
     "——像是有什么东西靠近了。"
-
+    with vpunch
+    show mm 
     "下一秒，一个少女从树丛里钻了出来。"
     "她低头拍了拍身上的叶子和灰尘，像是什么都没发生过一样。"
 
@@ -760,21 +764,34 @@ label park_route:
 
             msu_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
 
+            hide mm
+
             "现在周围的光线已经逐渐暗了下来，她居然还能......看得这么清楚？"
 
+            show mg at char_in,right
+
             ms_unknown "该回去了。"
+
+            show mm at char_in,left
 
             msu_unknown "知道了，毛莎。本来我也要往家走了"
 
             msu_unknown "那就下次再见了。"
 
+            hide mm
+            hide mg
+
             "少女冲我摆了摆手，转身和神秘男子向公园出口走去。"
+
+            show mm at char_in,center
 
             msu_unknown "哦，对了。"
 
             "突然, 她又退回几步，转头对我说。"
 
             msu_unknown "刚才只是没忍住，{w=0.5}捉弄了一下你。"
+
+            hide mm at char_out
 
             "少女的脚步声远去了。"
 
@@ -785,6 +802,7 @@ label park_route:
             "之后，又独自坐了一会儿。"
 
             "回到家，简单收拾了一下，就进入了梦乡。"
+            scene black with fade
             jump day_sick
 
 
@@ -808,13 +826,22 @@ label park_route:
 
             msu_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
 
+            hide mm
+
             "现在周围的光线已经逐渐暗了下来。她居然还能......看得这么清楚？"
 
+            show ms at char_in,right
+
             ms_unknown "该回去了。"
+
+            show mm at char_in,left
 
             msu_unknown "知道了，毛莎。本来我也要往家走了"
 
             msu_unknown "那就下次再见了。"
+
+            hide mm
+            hide ms
 
             "少女冲我摆了摆手，转身和神秘男子向公园出口走去。"
 
@@ -824,12 +851,13 @@ label park_route:
 
             "回到家，简单收拾了一下，就进入了梦乡。"
 
+            scene black with fade
+
             jump day_sick
 
 label day_sick:
 
-    #scene bg room_morning
-    # with fade
+    scene phome_bedroom with fade
 
     p "啊切、啊切！"
 
@@ -845,18 +873,17 @@ label day_sick:
 
     p "怎么温度这么高？！"
 
-    #scene black
-    # with fade
+    scene black with fade
 
     "接下来的一周里，大部分时间都在家静养。"
+
 
     "（滴滴）"
 
     "手机上浮现出千叶的信息："
     "（考拉创口贴emoji？）{p}千叶：祝你早日康复，{p}期待下周一起去看live哦。"
 
-    #scene bg room_day
-    # pwith fade
+    scene phome_bedroom with fade
 
     "感觉好点的时候——{w=0.3}基本上都在看书、打游戏。"
 
@@ -908,6 +935,7 @@ label before_livehouse:
     "手机上浮现出千叶的信息：我快到了，一会儿门口见。"
 label outside_livehouse:
     #【转场：街道、店面之类的；live house门口】
+    scene street_home2_n with fade
     qy "这边！"
     qy "你还蛮有精神的嘛，看来已经完全恢复了。"#（眯眼笑）
     "......可能是感冒药、漫画书、游戏机、小说们的功劳吧。"
@@ -961,6 +989,8 @@ label enter_livehouse:
 
 label jiancheng_intro:
 
+    show jc posl1 at char_in,center
+
     jc_unknown "哈喽，千叶。好久不见。" #（眯眼笑
 
     qy "好久不见。"
@@ -991,6 +1021,8 @@ label jiancheng_intro:
             p "原来叫Kidsplay啊。"
 
             jc "嗯。" #面带笑意的点了点头
+
+            hide jc at char_out
             jump maosha_intro
 
 
@@ -1019,6 +1051,8 @@ label jiancheng_intro:
 
             "说着他抬了抬手腕, 轻轻晃了晃手环。"
 
+            hide jc at char_out
+
             "仔细一看，和我的印字完全一样，只是颜色不同。"
             jump maosha_intro
 
@@ -1027,6 +1061,7 @@ label jiancheng_intro:
 label maosha_intro:
 
     #"毛莎登场"
+    show ms norl1 at char_in,center
 
     "这时，有人从后面拍了拍简诚的肩膀。"
 
@@ -1040,11 +1075,14 @@ label maosha_intro:
     
     ms_unknown  "你好，千叶。"
     qy "好久不见。"
+
+    hide ms at char_out
     "对方说完就要转身离去。"
+    show jc at char_in,left
     jc "毛莎，稍等一下。"
 
     jc "这是[pname]，今天和千叶一起来的。"
-
+    show ms at char_in,right
     p "你好。"
 
     ms_unknown "你好。"
@@ -1055,8 +1093,12 @@ label maosha_intro:
 
     ms_unknown "我们得走了。"
     jc "[pname]和千叶，那就一会儿演出见了。"
+    hide jc at char_out
+    hide ms at char_out
     p "嗯。"
+    show qy posl1 at char_in,center
     qy "回见。"
+    hide qy at char_out
 
 label before_show:
     "快开场了，我和千叶也移步到了演出区域。"

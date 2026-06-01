@@ -94,6 +94,18 @@ image mq_face_sadl0b = "images/mq/face/mq_face_sadl0b.png"
 image mq_face_posl2b = "images/mq/face/mq_face_posl2b.png"
 image mq_face_posl2w = "images/mq/face/mq_face_posl2w.png"
 image mq_face_wowl1w= "images/mq/face/mq_face_wowl1w.png"
+#毛笋
+image mm_body_blackcoat = "images/mm/mm_body_blackcoat.png"
+
+image mm_face_posl1 = "images/mm/mm_face_posl1.png"
+#毛莎
+image ms_body_greycoat = "images/ms/ms_body_greycoat.png"
+
+image ms_face_norl1 = "images/ms/ms_face_norl1.png"
+#简诚
+image jc_body_creamcoat = "images/jc/jc_body_creamcoat.png"
+
+image jc_face_posl1 = "images/jc/jc_face_posl1.png"
 
 
 #人物登场/退场参数
@@ -103,6 +115,7 @@ transform char_in:
 
 transform char_out:
     on hide:
+        alpha 1.0
         linear 0.3 alpha 0.0
 #人物站位
 define left = Position(xalign=0.1)
@@ -265,6 +278,36 @@ layeredimage mq:
         attribute wowl1hw:
             "mq_face_wowl1hw"
 
+layeredimage mm:
+
+    group body:
+        attribute blackcoat default
+     
+    group face:
+
+        attribute posl1 default:
+            "mm_face_posl1"
+
+layeredimage ms:
+
+    group body:
+        attribute greycoat default
+
+    group face:
+
+        attribute norl1 default:
+            "ms_face_norl1"
+
+layeredimage jc:
+
+    group body:
+        attribute creamcoat default
+
+    group face:
+
+        attribute posl1 default:
+            "jc_face_posl1"
+
 
 #===== bgimage定义 =====
 image park = "images/park.jpg"
@@ -281,10 +324,20 @@ image zubi_out = "images/bg/bg_zubi_out.png"
 image zubi_mid = "images/bg/bg_zubi_mid.png"
 image zubi_counter = "images/bg/bg_zubi_counter.png"
 image street_home1 = "images/bg/bg_street_home1.png"
+image street_home1_x = "images/bg/bg_street_home1_x.png"
+image street_home1_n = "images/bg/bg_street_home1_n.png"
 image street_home2 = "images/bg/bg_street_home2.png"
+image street_home2_x = "images/bg/bg_street_home2_x.png"
+image street_home2_n = "images/bg/bg_street_home2_n.png"
 image phome_livingroom = 'images/bg/bg_phome_livingroom.png'
+image phome_livingroom_n = 'images/bg/bg_phome_livingroom_n.png'
+image phome_bedroom = 'images/bg/bg_phome_bedroom.png'
+image phome_bedroom_n = 'images/bg/bg_phome_bedroom_n.png'
 image coala_out = 'images/bg/bg_coala_out.png'
+image coala_out_x = 'images/bg/bg_coala_out_x.png'
 image coala_in = 'images/bg/bg_coala_in.png'
+image park_n = 'images/bg/bg_park_n.png'
+image park_mid_n = 'images/bg/bg_park_mid_n.png'
 
 #blinking animation for qianye's neutral face
 image qy_face_normal_anim:
