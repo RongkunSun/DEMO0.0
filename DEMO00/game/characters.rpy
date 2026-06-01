@@ -94,6 +94,18 @@ image mq_face_sadl0b = "images/mq/face/mq_face_sadl0b.png"
 image mq_face_posl2b = "images/mq/face/mq_face_posl2b.png"
 image mq_face_posl2w = "images/mq/face/mq_face_posl2w.png"
 image mq_face_wowl1w= "images/mq/face/mq_face_wowl1w.png"
+#毛笋
+image mm_body_blackcoat = "images/mm/mm_body_blackcoat.png"
+
+image mm_face_posl1 = "images/mm/mm_face_posl1.png"
+#毛莎
+image mg_body_greycoat = "images/ms/ms_body_greycoat.png"
+
+image mg_face_norl1 = "images/ms/ms_face_norl1.png"
+#简诚
+image jc_body_greycoat = "images/jc/jc_body_greycoat.png"
+
+image jc_face_posl1 = "images/jc/jc_face_posl1.png"
 
 
 #人物登场/退场参数
@@ -265,6 +277,36 @@ layeredimage mq:
             "mq_face_wowl1w"
         attribute wowl1hw:
             "mq_face_wowl1hw"
+
+layeredimage mm:
+
+    group body:
+        attribute blackcoat default
+     
+    group face:
+
+        attribute posl1 default:
+            "mm_face_posl1"
+
+layeredimage mg:
+
+    group body:
+        attribute greycoat default
+
+    group face:
+
+        attribute norl1 default:
+            "mg_face_norl1"
+
+layeredimage jc:
+
+    group body:
+        attribute greycoat default
+
+    group face:
+
+        attribute pos1 default:
+            "jc_face_popsl1"
 
 
 #===== bgimage定义 =====
