@@ -830,7 +830,7 @@ label park_route:
 
             "现在周围的光线已经逐渐暗了下来。她居然还能......看得这么清楚？"
 
-            show mg at char_in,right
+            show ms at char_in,right
 
             ms_unknown "该回去了。"
 
@@ -841,7 +841,7 @@ label park_route:
             msu_unknown "那就下次再见了。"
 
             hide mm
-            hide mg
+            hide ms
 
             "少女冲我摆了摆手，转身和神秘男子向公园出口走去。"
 
@@ -935,6 +935,7 @@ label before_livehouse:
     "手机上浮现出千叶的信息：我快到了，一会儿门口见。"
 label outside_livehouse:
     #【转场：街道、店面之类的；live house门口】
+    scene street_home2_n with fade
     qy "这边！"
     qy "你还蛮有精神的嘛，看来已经完全恢复了。"#（眯眼笑）
     "......可能是感冒药、漫画书、游戏机、小说们的功劳吧。"
@@ -988,6 +989,8 @@ label enter_livehouse:
 
 label jiancheng_intro:
 
+    show jc posl1 at char_in,center
+
     jc_unknown "哈喽，千叶。好久不见。" #（眯眼笑
 
     qy "好久不见。"
@@ -1018,6 +1021,8 @@ label jiancheng_intro:
             p "原来叫Kidsplay啊。"
 
             jc "嗯。" #面带笑意的点了点头
+
+            hide jc at char_out
             jump maosha_intro
 
 
@@ -1046,6 +1051,8 @@ label jiancheng_intro:
 
             "说着他抬了抬手腕, 轻轻晃了晃手环。"
 
+            hide jc at char_out
+
             "仔细一看，和我的印字完全一样，只是颜色不同。"
             jump maosha_intro
 
@@ -1054,6 +1061,7 @@ label jiancheng_intro:
 label maosha_intro:
 
     #"毛莎登场"
+    show ms norl1 at char_in,center
 
     "这时，有人从后面拍了拍简诚的肩膀。"
 
@@ -1067,11 +1075,14 @@ label maosha_intro:
     
     ms_unknown  "你好，千叶。"
     qy "好久不见。"
+
+    hide ms at char_out
     "对方说完就要转身离去。"
+    show jc at char_in,left
     jc "毛莎，稍等一下。"
 
     jc "这是[pname]，今天和千叶一起来的。"
-
+    show ms at char_in,right
     p "你好。"
 
     ms_unknown "你好。"
@@ -1082,8 +1093,12 @@ label maosha_intro:
 
     ms_unknown "我们得走了。"
     jc "[pname]和千叶，那就一会儿演出见了。"
+    hide jc at char_out
+    hide ms at char_out
     p "嗯。"
+    show qy posl1 at char_in,center
     qy "回见。"
+    hide qy at char_out
 
 label before_show:
     "快开场了，我和千叶也移步到了演出区域。"

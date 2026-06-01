@@ -99,11 +99,11 @@ image mm_body_blackcoat = "images/mm/mm_body_blackcoat.png"
 
 image mm_face_posl1 = "images/mm/mm_face_posl1.png"
 #毛莎
-image mg_body_greycoat = "images/ms/ms_body_greycoat.png"
+image ms_body_greycoat = "images/ms/ms_body_greycoat.png"
 
-image mg_face_norl1 = "images/ms/ms_face_norl1.png"
+image ms_face_norl1 = "images/ms/ms_face_norl1.png"
 #简诚
-image jc_body_greycoat = "images/jc/jc_body_greycoat.png"
+image jc_body_creamcoat = "images/jc/jc_body_creamcoat.png"
 
 image jc_face_posl1 = "images/jc/jc_face_posl1.png"
 
@@ -288,7 +288,7 @@ layeredimage mm:
         attribute posl1 default:
             "mm_face_posl1"
 
-layeredimage mg:
+layeredimage ms:
 
     group body:
         attribute greycoat default
@@ -296,17 +296,17 @@ layeredimage mg:
     group face:
 
         attribute norl1 default:
-            "mg_face_norl1"
+            "ms_face_norl1"
 
 layeredimage jc:
 
     group body:
-        attribute greycoat default
+        attribute creamcoat default
 
     group face:
 
-        attribute pos1 default:
-            "jc_face_popsl1"
+        attribute posl1 default:
+            "jc_face_posl1"
 
 
 #===== bgimage定义 =====
