@@ -729,7 +729,8 @@ label park_route:
     "——大概是什么小动物弄出的声响吧。"
     "“唰唰唰”"
     "——像是有什么东西靠近了。"
-
+    with vpunch
+    show mm 
     "下一秒，一个少女从树丛里钻了出来。"
     "她低头拍了拍身上的叶子和灰尘，像是什么都没发生过一样。"
 
@@ -763,21 +764,34 @@ label park_route:
 
             msu_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
 
+            hide mm
+
             "现在周围的光线已经逐渐暗了下来，她居然还能......看得这么清楚？"
 
+            show mg at char_in,right
+
             ms_unknown "该回去了。"
+
+            show mm at char_in,left
 
             msu_unknown "知道了，毛莎。本来我也要往家走了"
 
             msu_unknown "那就下次再见了。"
 
+            hide mm
+            hide mg
+
             "少女冲我摆了摆手，转身和神秘男子向公园出口走去。"
+
+            show mm at char_in,center
 
             msu_unknown "哦，对了。"
 
             "突然, 她又退回几步，转头对我说。"
 
             msu_unknown "刚才只是没忍住，{w=0.5}捉弄了一下你。"
+
+            hide mm at char_out
 
             "少女的脚步声远去了。"
 
@@ -788,6 +802,7 @@ label park_route:
             "之后，又独自坐了一会儿。"
 
             "回到家，简单收拾了一下，就进入了梦乡。"
+            scene black with fade
             jump day_sick
 
 
@@ -811,13 +826,22 @@ label park_route:
 
             msu_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
 
+            hide mm
+
             "现在周围的光线已经逐渐暗了下来。她居然还能......看得这么清楚？"
 
+            show mg at char_in,right
+
             ms_unknown "该回去了。"
+
+            show mm at char_in,left
 
             msu_unknown "知道了，毛莎。本来我也要往家走了"
 
             msu_unknown "那就下次再见了。"
+
+            hide mm
+            hide mg
 
             "少女冲我摆了摆手，转身和神秘男子向公园出口走去。"
 
@@ -827,12 +851,13 @@ label park_route:
 
             "回到家，简单收拾了一下，就进入了梦乡。"
 
+            scene black with fade
+
             jump day_sick
 
 label day_sick:
 
-    #scene bg room_morning
-    # with fade
+    scene phome_bedroom with fade
 
     p "啊切、啊切！"
 
@@ -848,18 +873,17 @@ label day_sick:
 
     p "怎么温度这么高？！"
 
-    #scene black
-    # with fade
+    scene black with fade
 
     "接下来的一周里，大部分时间都在家静养。"
+
 
     "（滴滴）"
 
     "手机上浮现出千叶的信息："
     "（考拉创口贴emoji？）{p}千叶：祝你早日康复，{p}期待下周一起去看live哦。"
 
-    #scene bg room_day
-    # pwith fade
+    scene phome_bedroom with fade
 
     "感觉好点的时候——{w=0.3}基本上都在看书、打游戏。"
 
