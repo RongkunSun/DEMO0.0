@@ -1,11 +1,12 @@
 ﻿# 游戏的脚本可置于此文件中。
-
+define config.main_menu_music = "audio/小星星_伴奏好主音烂.mp3"
 
 
 #开场演出
 label splashscreen:
     scene black
-
+    if not renpy.music.is_playing():
+        play music "audio/小星星_伴奏好主音烂.mp3" fadein 1.0
     # 第一行
     show text "制作" as line1:
         xalign 0.2
@@ -35,7 +36,7 @@ label splashscreen:
 
     pause 7
 
-    play music "audio/main_menu1.mp3" fadein 1.0 noloop
+   
     #中文游戏标题
     show text "迷恋下一拍" as line3:
         xalign 0.5
@@ -59,7 +60,7 @@ label splashscreen:
         #linear 0.5 alpha 0.0
         
     pause 2
-    stop music fadeout 2.0
+   
     pause 3
     
     
