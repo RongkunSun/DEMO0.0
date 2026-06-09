@@ -96,14 +96,14 @@ screen say(who, what):
 
     window:
         id "window"
-
+        background textbox_mode
         if who is not None:
 
             window:
                 id "namebox"
                 style "namebox"
                 text who id "who"
-
+                
         text what id "what"
 
 
