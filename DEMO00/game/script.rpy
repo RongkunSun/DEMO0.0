@@ -103,7 +103,7 @@ label zubizubi_intro:
     
     scene ts
 
-    $ textbox_mode = "textbox_tense1"
+    #$ textbox_mode = "textbox_tense1"
     qy_unknown "这家伙看起来和之前......好像也没什么变化嘛？"
     qy_unknown "不是都说上过班的人，{w=0.5}会看起来不一样吗？"
 
@@ -343,7 +343,7 @@ label outside_shop:
     hide mq
     
     show mq wowl1
-    qy_unknown "哦，你旁边怎么还多了一个新朋友？这位是......"
+    mq_unknown "哦，你旁边怎么还多了一个新朋友？这位是......"
 
     menu:
         "你好，我叫[pname]，今天刚搬回临春。":
