@@ -36,52 +36,55 @@ init python:
 
             self.child = renpy.displayable(child)
 
-            # 当前偏移
             self.x = 0.0
             self.y = 0.0
 
-            # 目标偏移
             self.tx = 0.0
             self.ty = 0.0
 
             self.depth = depth
             self.speed = speed
 
-
         def render(self, width, height, st, at):
+
             rv = renpy.Render(width, height)
 
-            # === 获取鼠标位置（关键修复点）===
+            # 鼠标安全处理（关键）
             mx, my = renpy.get_mouse_pos()
 
-            # 屏幕中心
-            cx = width / 2
-            cy = height / 2
+            if mx is None or my is None:
+                mx = width * 0.5
+                my = height * 0.5
 
-            # 转换为偏移
-            dx = (mx - cx) / self.depth
-            dy = (my - cy) / self.depth
+            # 标准化坐标（屏幕无关）
+            dx = (mx / float(width)) - 0.5
+            dy = (my / float(height)) - 0.5
 
-            # 目标位置（反向）
-            self.tx = -dx
-            self.ty = -dy
+            # 视差目标（depth = 最大像素偏移）
+            self.tx = -dx * self.depth
+            self.ty = -dy * self.depth
 
-            # === 缓动 ===
+            # easing（稳定版）
             self.x += (self.tx - self.x) * self.speed
             self.y += (self.ty - self.y) * self.speed
 
-            # === 渲染子图 ===
+            # 渲染子图
             cr = renpy.render(self.child, width, height, st, at)
-            rv.blit(cr, (self.x, self.y))
 
-            # 持续刷新
-            renpy.redraw(self, 0)
+            # 避免浮点 jitter
+            rv.blit(cr, (int(self.x), int(self.y)))
+
+            # 稳定刷新（避免 0ms 死循环）
+            renpy.redraw(self, 0.016)
 
             return rv
+
+        def visit(self):
+            return [self.child]
 #image bg_parallax = ParallaxDisplayable("bg.png", depth=30)
     #scene bg_back
     #show bg_mid
     #show bg_front
-image bg_back  = ParallaxDisplayable("back.png", depth=60)
-image bg_mid   = ParallaxDisplayable("mid.png", depth=35)
-image bg_front = ParallaxDisplayable("face.png", depth=20)
+#image bg_back  = ParallaxDisplayable("back.png", depth=60)
+#image bg_mid   = ParallaxDisplayable("mid.png", depth=35)
+#image bg_front = ParallaxDisplayable("face.png", depth=20)
