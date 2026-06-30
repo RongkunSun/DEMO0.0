@@ -1138,6 +1138,147 @@ label before_show:
 
 
 
+label snowball_fight:
+    scene black with fade
+    play music "snowbgm.mp3"
+    show snow
+    "走出排练室，空气格外清新，大脑也从刚才的燥热中渐渐冷静了下来。"
+
+    "雪正淅淅沥沥地落在周围的一切事物上。我觉得自己的脸热得发烫，雪花大概也没法在上面停留。"
+    play sound "snowball_hit.mp3"
+    with hpunch
+    "啪！"
+
+    "被什么东西从背后狠狠拍打了一下。"
+    $ timeout = 15
+    $ timeout_label = "snow_timeout"
+
+    show screen countdown
+    menu:
+
+        "刚刚那个雪球多半是："
+
+        "盐之扔的":
+            hide screen countdown
+            jump snow_yanzhi
+
+        "马奇丢的":
+            hide screen countdown           
+            jump snow_maqi
+
+        "简诚投的":
+            hide screen countdown
+            jump snow_jiancheng
+
+        "毛莎？......真的会是他吗？":
+            hide screen countdown
+            jump snow_maosha
+
+
+
+label snow_timeout:
+    hide screen countdown
+    "我愣了一下，把手从兜里掏了出来。"
+
+    yz "完了......好像投得有点准。"
+
+    "趁手指还没感觉到冷，就回敬了盐之一个更扎实的雪球。"
+    play sound "snowball_hit.mp3"
+    with hpunch
+    mq "打雪仗竟然不带我！看招儿！"
+
+    jump snow_merge
+
+
+label snow_yanzhi:
+
+    "我立马把手从兜里掏了出来。趁手指还没感觉到冷就回敬了一个更扎实的雪球。"
+    play sound "snowball_hit.mp3"
+    with hpunch
+    yz "诶？！真的这么明显吗？"
+
+    mq "打雪仗竟然不带我！看招儿！"
+
+    jump snow_merge
+
+
+label snow_maqi:
+
+    "我立马把手从兜里掏了出来。趁手指还没感觉到冷就回敬了一个更扎实的雪球。"
+    play sound "snowball_hit.mp3"
+    with hpunch
+    mq "喂喂喂，我哪有盐之那么坏。"
+
+    yz "完了......好像投得有点准。"
+
+    mq "不过......打雪仗？这个我擅长！！看招儿！"
+
+    jump snow_merge
+
+
+label snow_jiancheng:
+
+    "我立马把手从兜里掏了出来。趁手指还没感觉到冷就回敬了一个更扎实的雪球。"
+    play sound "snowball_hit.mp3"
+    with hpunch
+    jc "这种事，一般我是不会主动挑起的。"
+
+    yz "完了......好像投得有点准。"
+
+    mq "打雪仗竟然不带我！看招儿！"
+
+    jump snow_merge
+
+
+label snow_maosha:
+
+    "虽然不太确定，我还是立马把手从兜里掏了出来。趁手指还没感觉到冷就回敬了一个更扎实的雪球。"
+    play sound "snowball_hit.mp3"
+    with hpunch
+    ms "......我只是负责团雪球。"
+
+    yz "完了......好像投得有点准。"
+
+    mq "打雪仗竟然不带我！看招儿！"
+
+    jump snow_merge
+
+
+label snow_merge:
+    play sound "snowball_hit.mp3"
+    with hpunch
+    play sound "snowball_hit.mp3"
+    with hpunch
+    yz "嗷！你俩下手轻点儿！"
+
+    ms "我暂时当盐之的盟友。"
+
+    yz "你又不会真动手，还不是看我被打。"
+
+    "盐之顺手接过毛莎递来的新雪球。"
+
+    jc "有人帮你团雪球就不错了。"
+
+    play sound "snowball_hit.mp3"
+    with hpunch
+    p "既然“战争”已经被挑起了……"
+    
+
+    jc "我选择中立……"
+    play sound "snowball_hit.mp3"
+    with hpunch
+    jc "为什么中立派也有人打！"
+
+    mq "战争来临时谁都不能置身事外！"
+
+    play sound "snowball_hit.mp3"
+    with hpunch
+    "哈哈哈"
+    play sound "snowball_hit.mp3"
+    with hpunch
+    play sound "snowball_hit.mp3"
+    with hpunch
+    with hpunch
 
 
     return

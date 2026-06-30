@@ -339,6 +339,9 @@ image coala_in = 'images/bg/bg_coala_in.png'
 image park_n = 'images/bg/bg_park_n.png'
 image park_mid_n = 'images/bg/bg_park_mid_n.png'
 
+#临时测试北境
+image snow = "images/snow.png"
+
 #blinking animation for qianye's neutral face
 image qy_face_normal_anim:
 

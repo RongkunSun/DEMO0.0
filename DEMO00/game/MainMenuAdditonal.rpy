@@ -88,3 +88,16 @@ init python:
 #image bg_back  = ParallaxDisplayable("back.png", depth=60)
 #image bg_mid   = ParallaxDisplayable("mid.png", depth=35)
 #image bg_front = ParallaxDisplayable("face.png", depth=20)
+
+#speacial screen effect
+default timeout = 3.0
+default timeout_label = None
+
+screen countdown():
+
+    if timeout_label:
+
+        timer timeout action [
+            Hide("countdown"),
+            Jump(timeout_label)
+        ]
