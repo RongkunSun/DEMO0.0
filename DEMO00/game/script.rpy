@@ -1259,10 +1259,7 @@ label snow_merge:
 
     jc "有人帮你团雪球就不错了。"
 
-    play sound "snowball_hit.mp3"
-    with hpunch
     p "既然“战争”已经被挑起了……"
-    
 
     jc "我选择中立……"
     play sound "snowball_hit.mp3"
@@ -1279,7 +1276,6 @@ label snow_merge:
     play sound "snowball_hit.mp3"
     with hpunch
     with hpunch
-
 
     return
 
