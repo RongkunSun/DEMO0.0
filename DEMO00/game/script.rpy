@@ -1142,9 +1142,9 @@ label snowball_fight:
     scene black with fade
     play music "snowbgm.mp3"
     show snow
-    "走出排练室，空气格外清新，大脑也从刚才的燥热中渐渐冷静了下来。"
+    "走出排练室，空气格外清新，大脑也从刚才的燥热中渐渐冷静下来。"
 
-    "雪正淅淅沥沥地落在周围的一切事物上。我觉得自己的脸热得发烫，雪花大概也没法在上面停留。"
+    "雪正淅淅沥沥地落到周围的一切事物上。我觉得自己的脸热得发烫，雪花大概也没法在上面停留。"
     play sound "snowball_hit.mp3"
     with hpunch
     "啪！"
@@ -1195,7 +1195,7 @@ label snow_yanzhi:
     "我立马把手从兜里掏了出来。趁手指还没感觉到冷就回敬了一个更扎实的雪球。"
     play sound "snowball_hit.mp3"
     with hpunch
-    yz "诶？！真的这么明显吗？"
+    yz "诶？！你怎么猜到的？"
 
     mq "打雪仗竟然不带我！看招儿！"
 
@@ -1221,7 +1221,7 @@ label snow_jiancheng:
     "我立马把手从兜里掏了出来。趁手指还没感觉到冷就回敬了一个更扎实的雪球。"
     play sound "snowball_hit.mp3"
     with hpunch
-    jc "这种事，一般我是不会主动挑起的。"
+    jc "这种事，一般都不会是我主动挑起的。"
 
     yz "完了......好像投得有点准。"
 
@@ -1235,7 +1235,7 @@ label snow_maosha:
     "虽然不太确定，我还是立马把手从兜里掏了出来。趁手指还没感觉到冷就回敬了一个更扎实的雪球。"
     play sound "snowball_hit.mp3"
     with hpunch
-    ms "......我只是负责团雪球。"
+    ms "......我只负责团雪球。"
 
     yz "完了......好像投得有点准。"
 
@@ -1253,7 +1253,7 @@ label snow_merge:
 
     ms "我暂时当盐之的盟友。"
 
-    yz "你又不会真动手，还不是看我被打。"
+    yz "你又不会真出手，还不是看我被打。"
 
     "盐之顺手接过毛莎递来的新雪球。"
 
@@ -1276,8 +1276,91 @@ label snow_merge:
     play sound "snowball_hit.mp3"
     with hpunch
     with hpunch
+    
 
-    return
+    yz "不如我们停战、建交，来堆个超大的雪人吧！"
+
+play sound "snowball_hit.mp3"
+with hpunch
+
+mq "就堆那种身子要两、三个人推才能推得动的！"
+
+play sound "snowball_hit.mp3"
+with hpunch
+
+jc "听起来脑袋至少也得两个人抬。"
+
+ms "……胡萝卜的话，我可以帮忙。"
+
+play sound "snowball_hit.mp3"
+with hpunch
+with hpunch
+
+"我看了看手里正攥着的雪球。"
+
+menu:
+    "要停战吗？"
+
+    "嗯，那就停吧。":
+
+        "我蹲下身，松开了手，让雪球自然滚落到覆盖着积雪的地面上，然后把它往雪里按了按，又向前轻轻推了一下。"
+
+        "太好了。雪是粘的。"
+
+        p "这下真的可以堆雪人了！"
+
+        "推雪球是让人不知疲倦的事。因为只要一直推，雪球就会一直变大，直到重得几个人都推不动为止。"
+
+        jc "照这个大小继续滚下去……不会因为妨碍交通被带走吧？"
+
+        mq "诶？！"
+
+        yz "诶？！"
+
+        p "诶？！"
+
+        ms "……离人行道还差三米。"
+
+    "不要。":
+
+        p "再玩一会儿吧！"
+
+        mq "乐意奉陪！"
+
+        yz "可恶，竟然没有中计。"
+
+        yz "毛莎，再给我团三个。"
+
+        "毛莎手上的动作还是和刚才一样，并没有加快。"
+
+        jc "我帮你团两个吧，毛莎。"
+
+        mq "啊？简诚，你怎么跑去帮他们了！说好的中立呢！！"
+
+        "[pname]快！趁现在！打乱他们的计划！"
+
+        p "收到！"
+        play sound "snowball_hit.mp3"
+        with hpunch
+        
+        window hide
+        show screen countdown
+        menu:
+            "“明天要不要一起堆雪人？”":
+                hide screen countdown
+                window show
+                p"明天要不要一起堆雪人！"
+                mq "好啊，明天我也没课。"
+                yz"我没意见"
+                ms"……我带胡萝卜。"
+                jc"只要明天没有暴风雪。"
+                play sound "snowball_hit.mp3"
+                with hpunch
+                jc"好险，{w=0.5}幸好躲开了。"
+   
+
+
+return
 
 
 label work:
