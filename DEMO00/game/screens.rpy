@@ -347,9 +347,9 @@ screen main_menu():
     ## 此语句可确保替换掉任何其他菜单屏幕。
     tag menu
 
-    add ParallaxDisplayable("back.png", depth=60)
-    add ParallaxDisplayable("mid.png", depth=35)
-    add ParallaxDisplayable("face.png", depth=20)
+    add ParallaxDisplayable("images/test/paraA_3.png", depth=60)          #"back.png"
+    add ParallaxDisplayable("images/test/paraA_2.png", depth=35)          #"mid.png"
+    add ParallaxDisplayable("images/test/paraA_1.png", depth=20)          #"face.png"
 
     ## 此空框可使标题菜单变暗。
     frame:
@@ -367,7 +367,7 @@ screen main_menu():
                 style "main_menu_title"
 
             text "[config.version]":
-                style "main_menu_version"
+                style "main_menu_version"   
 
 
 style main_menu_frame is empty
