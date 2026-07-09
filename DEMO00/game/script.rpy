@@ -1333,11 +1333,11 @@ menu:
 
         "毛莎手上的动作还是和刚才一样，并没有加快。"
 
-        jc "我帮毛莎团两个吧。"
+        jc "我帮你团两个吧，毛莎。"
 
         mq "啊？简诚，你怎么跑去帮他们了！说好的中立呢！！"
 
-        "[pname]快！趁现在！打乱他们的计划！"
+        mq "[pname]快！趁现在！打乱他们的计划！"
 
         p "收到！"
         play sound "snowball_hit.mp3"
@@ -1347,6 +1347,7 @@ menu:
         $ timeout = 3
         $ timeout_label = "snow_down"
         show screen countdown
+        # "是啊——"
         menu:
             "“明天要不要一起堆雪人？”":
                 hide screen countdown
@@ -1382,7 +1383,7 @@ label snow_down:
 
 label snow_mute:
     "我没有回应。又在雪地里躺了一会儿，然后直起了身。"
-    "掸落身上粘着的雪时，不小心弄了一点到嘴巴里。{p}雪......{p}尝起来没有味道。"
+    "掸落身上粘着的雪时，不小心弄了一点到嘴巴里。{p}尝起来没有味道。"
 
    
 
