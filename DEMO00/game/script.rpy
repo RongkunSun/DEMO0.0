@@ -1150,7 +1150,7 @@ label snowball_fight:
     "啪！"
 
     "被什么东西从背后狠狠拍打了一下。"
-    $ timeout = 15
+    $ timeout = 10
     $ timeout_label = "snow_timeout"
 
     show screen countdown
@@ -1207,7 +1207,7 @@ label snow_maqi:
     "我立马把手从兜里掏了出来。趁手指还没感觉到冷就回敬了一个更扎实的雪球。"
     play sound "snowball_hit.mp3"
     with hpunch
-    mq "喂喂喂，我哪有盐之那么坏。"
+    mq "喂喂喂，我哪有盐之那么坏！"
 
     yz "完了......好像投得有点准。"
 
@@ -1333,7 +1333,7 @@ menu:
 
         "毛莎手上的动作还是和刚才一样，并没有加快。"
 
-        jc "我帮你团两个吧，毛莎。"
+        jc "我帮毛莎团两个吧。"
 
         mq "啊？简诚，你怎么跑去帮他们了！说好的中立呢！！"
 
@@ -1344,6 +1344,8 @@ menu:
         with hpunch
         
         window hide
+        $ timeout = 3
+        $ timeout_label = "snow_down"
         show screen countdown
         menu:
             "“明天要不要一起堆雪人？”":
@@ -1351,12 +1353,35 @@ menu:
                 window show
                 p"明天要不要一起堆雪人！"
                 mq "好啊，明天我也没课。"
-                yz"我没意见"
+                yz"我没意见。"
                 ms"……我带胡萝卜。"
                 jc"只要明天没有暴风雪。"
                 play sound "snowball_hit.mp3"
                 with hpunch
                 jc"好险，{w=0.5}幸好躲开了。"
+label snow_down:
+    "鼓起勇气，往身后一片还无人踏足的雪地上倒了下去。整个人作为一个“大”字陷了进去。"
+    "或许是刚才说了太多话，扔了太多雪球，也可能是因为了被砸了太多次，此时已经累得完全不想动弹。"
+    "我勉强挪了挪脖子，让自己躺得舒服些。"
+    "盯着空中缓缓飘落的雪花——{p}下雪......{p}如果一直下雪就好了。"
+    "“我们明天去堆雪人吧？”声音透过积雪和帽子模模糊糊地传入耳中。"
+    jc "你还真是执着啊。"
+    mq"明天，我们去堆雪人！"
+
+    window hide
+    $ timeout = 3
+    $ timeout_label = "snow_mute"
+    show screen countdown
+    menu:
+        "“嗯！”":
+            "我“腾”的一下坐了起来，开始把粘在身上的雪片一一拍落。"
+            "有一丢丢不小心溅到了嘴里，没有尝出什么特别的味道。"
+
+
+label snow_mute:
+    "我没有回应。又在雪地里躺了一会儿，然后直起了身。"
+    "在掸落身上的粘着的雪时，不小心弄了一点到嘴巴里。{w=0.5}尝起来没有什么特别的。"
+
    
 
 
