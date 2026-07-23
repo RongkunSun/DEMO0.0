@@ -68,11 +68,23 @@ init python:
             self.x += (self.tx - self.x) * self.speed
             self.y += (self.ty - self.y) * self.speed
 
-            # 渲染子图
             cr = renpy.render(self.child, width, height, st, at)
 
-            # 避免浮点 jitter
-            rv.blit(cr, (int(self.x), int(self.y)))
+            # 调试
+            renpy.log("screen = %d x %d" % (width, height))
+            renpy.log("child  = %d x %d" % (cr.width, cr.height))
+
+            # 居中
+            base_x = (width - cr.width) // 2
+            base_y = (height - cr.height) // 2
+
+            rv.blit(
+            cr,
+            (
+            int(base_x + self.x),
+            int(base_y + self.y),
+            )
+            )
 
             # 稳定刷新（避免 0ms 死循环）
             renpy.redraw(self, 0.016)
