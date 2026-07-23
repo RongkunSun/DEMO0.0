@@ -303,6 +303,8 @@ screen navigation():
         textbutton _("设置") action ShowMenu("preferences")
 
         textbutton "Gallery" action ShowMenu("gallery") #added gallery system
+        textbutton "Draw":
+            action Show("catdraw")#added draw system
 
         if _in_replay:
 
