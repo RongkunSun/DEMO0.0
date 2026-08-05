@@ -1,12 +1,12 @@
 ﻿# 游戏的脚本可置于此文件中。
-define config.main_menu_music = "audio/littlestar.mp3"
+#define config.main_menu_music = "audio/littlestar.mp3"
 
 
 #开场演出
 label splashscreen:
     scene black
-    if not renpy.music.is_playing():
-        play music "audio/littlestar.mp3" fadein 1.0
+    #if not renpy.music.is_playing():
+        #play music "audio/littlestar.mp3" fadein 1.0
     # 第一行
     show text "制作" as line1:
         xalign 0.2
@@ -1385,6 +1385,8 @@ label snow_mute:
     "我没有回应。又在雪地里躺了一会儿，然后直起了身。"
     "掸落身上粘着的雪时，不小心弄了一点到嘴巴里。{p}尝起来没有味道。"
 
+    jump afte_musicfestival
+
    
 
 
@@ -1481,6 +1483,70 @@ screen bulletin_boardtest:
         hovered SetVariable("screen_tooltip", "brownTemperature control")
         unhovered SetVariable("screen_tooltip", "")
         action Jump("brown")
+
+label afte_musicfestival:
+    "粉色的头发......{w=0.5}是伊娜！"
+    menu:
+        "追上去！":
+            jump chasing_ina
+        "留在原地。":
+            jump stay_there
+
+label chasing_ina:
+    scene crowd
+    #"来到观众区才真切地感受到，台下聚集的人......可真多啊！"
+    #menu:
+        #"左转":
+            #jump chasing_ina
+        #"右转":
+            #jump stay_there
+
+    "伊娜的帽檐时不时瞥向我这边，却始终没有停下自己的脚步。"
+    p"可恶，这下肯定追不上了。"
+    "好在，她终于停了下来。{p}随即竟转过身，主动走到了我的面前。"
+    ina"看来也是个执着的家伙呢。"
+    "趁着我大口喘气的功夫，伊娜自顾自地说起话来。"
+    ina"在我离开后，大家果然重振旗鼓，走向了更大的舞台。{p}还招募到了像你这样的新成员。"
+    "被伊娜盯着的感觉像是"
+    show bear2
+    ina"你应该知道我是谁吧？不然也不会追我这么一段路了。"
+    show bear1
+    ina"player，很高兴见到你。我是伊娜，Kidsplay的前主唱。"
+    ina"时间有限，让我先问你一个问题吧。"
+    ina"如果有一天，你在舞台上的光芒逐渐掩盖了Kidsplay其他成员，而你又比任何人都清楚，他们也拥有足以被世界看见的才华。这时，一个能让你单飞的机会摆在你的面前。你会怎么选？"
+    "我勉勉强强地顺了口气。"
+    menu:
+        "我绝对不会离开Kidsplay的。":
+            ina"有意思。没想到你这么勇敢。有你在的话......应该会不一样吧。"
+            ina"那就祝你好运喽。"
+        "我大概也会做出和你一样的选择吧。":
+            
+            p "......{w=0.5}作出那个离开的选择。"
+            ina"那个平时沉默寡言的男孩，当时应该已经猜到我的意图了吧？"
+            ina"虽说不管怎么选都没有错。但我的离开，大概让盐之那家伙，偷偷难过了很久吧。"
+            ina"为了伙伴离开而难过，为了梦想又要晚一点实现而难过......为了自己想要伙伴留下的那份自私而难过。"
+            p"原来伊娜也不是完全不了解盐之的心情。"
+    "几声消息提示音从伊娜的手机里传来，但统统被她无视了。"
+    ina"好了，现在轮到我回答你一个问题了。"
+    menu:
+        "你当初为什么会离开kids play？":
+            ina"因为我知道自己想要什么也知道别人想要什么。我不想让观众只记住“伊娜的乐队”，这对乐队里其他人的才华来说实在是种浪费。他们可不是现在那些，围绕在我身边，单单为了在舞台上衬托我而存在的家伙。当明星更适合我的，我可没什么创作天赋。"
+        "伊娜你会为什么而难过吗？":
+            ina"意想不到的问题。如果认真回答的话，大概——"
+            ina"如果有一天，无法遵循内心的声音而行动，应该会让我很难过吧。"
+        
+        "你和盐之之前是情侣吗？":  
+            ina "哈哈哈，真是把我逗笑了。我们可没有交往过。我知道他有一个喜欢了很久的人。而我喜欢的人嘛——" 
+            show bear3
+            "伊娜真诚的目光能让被她注视的人内心产生强烈的震颤，我深有所感。{p}这就是动物遇到比自己强大的存在时会有的本等反应吗？{p}说到底人类也是动物的一种。" 
+        "下次再来看我们的表演吧！":
+            "伊娜愣了一下，好像这个邀请对她来说是个惊喜。"
+            ina"行啊，到时候记得给我留赠票。"
+            show bear1
+    "此刻，伊娜的手机开始吱吱作响。铃声是一首我和kidsplay的大家一起排练过的歌。"
+    "伊娜按灭了手机铃声，说道——"
+    ina"我的团队在等我了，他们应该也在等你吧。我们两个该回去了。"
+    "她向我道了别，又在手机上输入了什么，便匆匆转身离去。眼前的粉色一点点融入面前鲜活躁动的人群，直到彻底消失不见。"
 
 
 
