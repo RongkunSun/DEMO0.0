@@ -343,6 +343,15 @@ image park_mid_n = 'images/bg/bg_park_mid_n.png'
 
 #临时测试北境
 image snow = "images/snow.png"
+#临时音乐节背景测试
+image crowd = im.Scale("images/crowd.png", 1920, 1080)
+image beer = im.Scale("images/beer.png", 1920, 1080)
+image team1 = im.Scale("images/team1.png", 1920, 1080)
+image couple = im.Scale("images/couple.png", 1920, 1080)
+image dancer = im.Scale("images/dancer.png", 1920, 1080)
+image ill = im.Scale("images/ill.png", 1920, 1080)
+image puke = im.Scale("images/puke.png", 1920, 1080)
+
 
 #blinking animation for qianye's neutral face
 image qy_face_normal_anim:
