@@ -736,27 +736,27 @@ label park_route:
     "下一秒，一个少女从树丛里钻了出来。"
     "她低头拍了拍身上的叶子和灰尘，像是什么都没发生过一样。"
 
-    msu_unknown "......可恶，又跟丢了。"
+    mm_unknown "......可恶，又跟丢了。"
 
     "很快，她注意到了我的目光。"
 
-    msu_unknown "哈，被你看到了。"
+    mm_unknown "哈，被你看到了。"
 
     menu:
 
         "把目光移开":
 
-            msu_unknown "要不......就把你定为下一个目标吧？"
+            mm_unknown "要不......就把你定为下一个目标吧？"
 
             p "”......！“"
 
-            msu_unknown "放心，不会一上来就把你灭口的。"
+            mm_unknown "放心，不会一上来就把你灭口的。"
 
             p "”......！！“"
 
             "然后是漫长的几声蝉鸣，树叶被风吹得沙沙作响。{p}还有她越来越近的脚步声。"
 
-            msu_unknown "这个耳机应该已经是很多年前的东西了吧。"
+            mm_unknown "这个耳机应该已经是很多年前的东西了吧。"
 
             "诶？——"
 
@@ -764,34 +764,34 @@ label park_route:
 
             p "......我不太了解呢。只知道是很久以前买的了。"
 
-            msu_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
+            mm_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
 
             hide mm
 
             "现在周围的光线已经逐渐暗了下来，她居然还能......看得这么清楚？"
 
-            show mg at char_in,right
+            show ms at char_in,right
 
             ms_unknown "该回去了。"
 
             show mm at char_in,left
 
-            msu_unknown "知道了，毛莎。本来我也要往家走了"
+            mm_unknown "知道了，毛莎。本来我也要往家走了"
 
-            msu_unknown "那就下次再见了。"
+            mm_unknown "那就下次再见了。"
 
             hide mm
-            hide mg
+            hide ms
 
             "少女冲我摆了摆手，转身和神秘男子向公园出口走去。"
 
             show mm at char_in,center
 
-            msu_unknown "哦，对了。"
+            mm_unknown "哦，对了。"
 
             "突然, 她又退回几步，转头对我说。"
 
-            msu_unknown "刚才只是没忍住，{w=0.5}捉弄了一下你。"
+            mm_unknown "刚才只是没忍住，{w=0.5}捉弄了一下你。"
 
             hide mm at char_out
 
@@ -820,13 +820,13 @@ label park_route:
 
             "她眯了眯眼睛，向我靠近了几步。"
 
-            msu_unknown "这个耳机应该已经是很多年前的东西了吧。"
+            mm_unknown "这个耳机应该已经是很多年前的东西了吧。"
 
             "她抬了抬下巴，指向我手里的耳机。"
 
             p "......我不太了解呢。只知道是很久以前买的了。"
 
-            msu_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
+            mm_unknown "虽然2年前再版过一次，不过果然原版的质感还是无法替代啊。"
 
             hide mm
 
@@ -838,9 +838,9 @@ label park_route:
 
             show mm at char_in,left
 
-            msu_unknown "知道了，毛莎。本来我也要往家走了"
+            mm_unknown "知道了，毛莎。本来我也要往家走了"
 
-            msu_unknown "那就下次再见了。"
+            mm_unknown "那就下次再见了。"
 
             hide mm
             hide ms
@@ -1622,7 +1622,7 @@ label chasing_ina:
     show bear1
     ina"player，很高兴见到你。我是伊娜，Kidsplay的前主唱。"
     ina"时间有限，让我先问你一个问题吧。"
-    ina"如果有一天，你在舞台上的光芒逐渐掩盖了Kidsplay其他成员，而你又比任何人都清楚，他们也拥有理应被世界所看见的才华。这时，一个能让你单飞的机会摆在你的面前。你会怎么选？"
+    ina"如果有一天，你在舞台上的光芒逐渐掩盖了Kidsplay的其他成员，而你又比任何人都清楚，他们拥有着值得被世界看见的才华。这时，一个能让你单飞的机会摆在你的面前。你会怎么选？"
     "我勉勉强强地顺了口气。"
     $ stay_kidsplay = False
 
