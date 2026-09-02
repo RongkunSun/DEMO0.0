@@ -505,7 +505,7 @@ label koalaok_final:
     hide powerfulqianye
     show grandmafade
     koala_grandma "经营这样一家餐厅不仅心中要充满对生活的热爱，同时也意味着对重复、繁琐的事务日复一日的坚持。"
-    "一直陪伴在我身边的千叶对于我是什么样的存在呢？{p}是像考拉一样存在么。"
+    "一直陪伴在我身边的千叶对于我是什么样的存在呢？{p}——是像考拉一样存在么。"
     hide grandmafade
 
     play sound "putring.mp3"
