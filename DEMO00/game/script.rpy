@@ -505,7 +505,7 @@ label koalaok_final:
     hide powerfulqianye
     show grandmafade
     koala_grandma "经营这样一家餐厅不仅心中要充满对生活的热爱，同时也意味着对重复、繁琐的事务日复一日的坚持。"
-    "一直陪伴在我身边的千叶对于我是什么样的存在呢？"
+    "一直陪伴在我身边的千叶对于我是什么样的存在呢？{p}是像考拉一样存在么。"
     hide grandmafade
 
     play sound "putring.mp3"
@@ -531,7 +531,7 @@ label koalaok_final:
 
     "当我拿起那枚戒指时，发现它也带上了一点两杯热茶留下的温度。"
 
-    "要在什么时候把这枚戒指交给千叶呢？{p}在这之前我会好好保管它的。"
+    "要在什么时候把这枚戒指交给千叶呢？......在这之前我会好好保管它的。"
 
 
 #label start:
