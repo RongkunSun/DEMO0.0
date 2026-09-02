@@ -502,15 +502,17 @@ label koalaok_final:
 
     show powerfulqianye
     "可以想像千叶笑着说出这种话的情景。"
-    hide powerfulqianye
-    show grandmafade
     koala_grandma "经营这样一家餐厅不仅心中要充满对生活的热爱，同时也意味着对重复、繁琐的事务日复一日的坚持。"
-    "一直陪伴在我身边的千叶对于我是什么样的存在呢？{p}——是像考拉一样存在么。"
-    hide grandmafade
+    hide powerfulqianye
+    show powerfulqianyebear
+    "一直陪伴在我身边的千叶对于我是什么样的存在呢？"
+    hide powerfulqianyebear
 
     play sound "putring.mp3"
+    show grandmafade
     koala_grandma "对了......这枚戒指就交给你了[pname]......就由你帮我拿给千叶吧。"
     hide grandmalook
+    hide grandmafade
     show grandmasay
     "此时一枚戒指正静静地躺在刚刚还摆过茶杯的桌面上。"
     
