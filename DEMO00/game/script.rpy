@@ -24,6 +24,7 @@ label start:
     call layoff from _call_layoff
     call train from _call_train
     #call b_board from _call_b_board
+    #call scene1_onthetrain from _call_scene1_onthetrain
     call zubizubi_intro from _call_zubizubi_intro
     
     
@@ -435,18 +436,19 @@ label chasing_ina:
     show bear1
     ina"player，很高兴见到你。我是伊娜，Kidsplay的前主唱。"
     ina"时间有限，让我先问你一个问题吧。"
-    ina"如果有一天，你在舞台上的光芒逐渐掩盖了Kidsplay其他成员，而你又比任何人都清楚，他们也拥有理应被世界所看见的才华。这时，一个能让你单飞的机会摆在你的面前。你会怎么选？"
+    ina"如果有一天，你在舞台上的光芒逐渐掩盖了Kidsplay其他成员，而你又比任何人都清楚，他们拥有着值得被世界所看见的才华。这时，一个能让你单飞的机会摆在你的面前。你会怎么选？"
     "我勉勉强强地顺了口气。"
-    $ stay_kidsplay = False
+    default stay_kidsplay = False
 
     menu:
         "我绝对不会离开Kidsplay的。":
             $ stay_kidsplay = True
             ina"有意思。没想到你这么勇敢。有你在的话......应该会不一样吧。"
             ina"那就祝你好运喽。"
-        "我大概也会做出和你一样的选择吧。":      
-            p "也会......{w=0.5}选择离开。"
-            ina"那个平时沉默寡言的男孩，当时应该猜到我的意图了吧？"
+        "我大概也会做出和你一样的选择吧。":
+            $ stay_kidsplay = False    
+            p "也会......{w=0.5}做出那个离开的决定。"
+            ina"那个平时沉默寡言的男孩，{p}当时应该猜到我的意图了吧？"
             ina"虽说不管怎么选都没有错。但我的离开，大概让盐之那家伙，偷偷难过了很久吧。"
             #ina"为了伙伴的离开而难过，为了梦想又要晚一点实现而难过......为了自己想要伙伴留下的那一点点私心而难过。"
             p"原来伊娜也不是完全不了解盐之的心情。"
@@ -477,6 +479,61 @@ label chasing_ina:
     "她向我道了别，又在手机上输入了什么，便匆匆转身离去。眼前的粉色一点一点融入面前鲜活躁动的人群，直到彻底消失不见。"
 
 
+#考拉餐厅奶奶给我们祖传戒指小样：
+label koalaok_final:
+    show grandmasay
+    play music "grandmachat.mp3"
+    koala_grandma "......[pname]，等一下......来帮我试试餐厅新研发的方便茶包......看看味道......和在店里喝到的相比......怎么样......"
+    play sound "hotwater.mp3"
+    "真的只是眨了几下眼睛的功夫，两杯热腾腾的红茶就已经被泡好端上了桌——"
+    play sound "clearingspoon.mp3"
+    "茶包的确泡起来方便又快捷，闻起来也和店里能喝到的那种一模一样。"
+    play sound "rollingrollingspoon.mp3"
+    "等着红茶放凉的功夫，考拉奶奶悠悠地说道——"
+    show grandmalook
+    koala_grandma "时间过得可真快啊......一转眼，我们千叶就已经能在餐厅独当一面了。"
+    "我点点头，小口啜饮着还冒着热气的红茶，鼻尖和眼睛都能感受到温暖的氤氲。"
+    play sound "rollingrollingspoon.mp3"
+    koala_grandma "我有的时候会问问她，有没有觉得继承餐厅......让她少了很多和同龄人一起打打闹闹、轻松自在的时光......或者说，少了很多和朋友一起出去冒险的机会。"
+    show grandmafade
+    "即使很忙，千叶也经常抽出时间和我们玩......{p}忙着平衡工作和日常生活的同时，也不忘时不时给朋友制造些“小惊喜”。"
+    hide grandmafade
+    koala_grandma "每次她都说......自己拥有的......是非常宝贵的机会，一想到客人因为吃到餐厅里美味的食物而留下美好的回忆，她就觉得——“经营餐厅，是一件很值得投入的事情。”"
+
+    show powerfulqianye
+    "可以想像千叶笑着说出这种话的情景。"
+    koala_grandma "经营这样一家餐厅不仅心中要充满对生活的热爱，同时也意味着对重复、繁琐的事务日复一日的坚持。"
+    hide powerfulqianye
+    show powerfulqianyebear
+    "一直陪伴在我身边的千叶对于我是什么样的存在呢？"
+    hide powerfulqianyebear
+
+    play sound "putring.mp3"
+    show grandmafade
+    koala_grandma "对了......这枚戒指就交给你了[pname]......就由你帮我拿给千叶吧。"
+    hide grandmalook
+    hide grandmafade
+    show grandmasay
+    "此时一枚戒指正静静地躺在刚刚还摆过茶杯的桌面上。"
+    
+    "考拉奶奶拿着我俩喝完的茶杯慢慢悠悠地走向了后厨。"
+
+    koala_grandma "好像今天还约了姐妹们唱露天KTV......差点儿忘了......现在走应该还来得及......"
+
+    menu:
+        "奶奶我送你去露天KTV场所吧。":
+            koala_grandma "好......好......那真是谢谢你啦！"
+
+        "奶奶那我先走了。":
+            koala_grandma "行......咱俩各自去忙各自的吧。"
+
+    koala_grandma "......看来下个产品就让他们......去研发......用冷水就能泡好的......冷泡红茶吧......"
+
+    koala_grandma "一定会很受现在都市年轻人喜欢的。"
+
+    "当我拿起那枚戒指时，发现它也带上了一点两杯热茶留下的温度。"
+
+    "要在什么时候把这枚戒指交给千叶呢？......在这之前我会好好保管它的。"
 
 
 #label start:
