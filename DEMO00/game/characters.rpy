@@ -1,5 +1,6 @@
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
 #define p = Character("Player")
+#主角团
 define p = Character("[pname]", color="#ffffff")
 define mq = Character("马奇", color="#e3b008")
 define yz = Character("盐之", color="#f42727")
@@ -17,6 +18,12 @@ define msu_unknown = Character( "？？？", color="#e82b73")
 define mq_unknown = Character( "？？？", color="#e3b008")
 define ina_unknown = Character( "？？？", color="#ee8da9")
 
+
+#考拉家族
+define koala_grandma = Character("考拉奶奶", color="#a2c5cf")
+
+
+#群演
 define fana = Character("观众A", color="#a2c5cf")
 define fanb = Character("观众B", color="#a2adcf")
 define fanab = Character("观众A、观众B", color="#cfa2cd")
@@ -108,6 +115,8 @@ image ms_face_norl1 = "images/ms/ms_face_norl1.png"
 image jc_body_creamcoat = "images/jc/jc_body_creamcoat.png"
 
 image jc_face_posl1 = "images/jc/jc_face_posl1.png"
+#考拉奶奶
+
 
 
 #人物登场/退场参数
